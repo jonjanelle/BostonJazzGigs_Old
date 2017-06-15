@@ -1,2 +1,1 @@
-# README
-=Boston Jazz Gigs
+# Boston Jazz Gigs
