@@ -37,7 +37,8 @@ $(document).ready(function($) {
     }, 200);
     sr.reveal('.sr-button', {
         duration: 1000,
-        delay: 200
+        delay: 50,
+        scale: .7
     });
     sr.reveal('.sr-contact', {
         duration: 600,

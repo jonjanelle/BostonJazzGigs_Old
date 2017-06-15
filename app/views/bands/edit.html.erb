@@ -1,2 +1,11 @@
-<h1>Bands#edit</h1>
-<p>Find me in app/views/bands/edit.html.erb</p>
+<!-- Page Content -->
+<div class="container-fluid nav-buffer">
+  <a href="/bands/<%= @band.id %>" class="btn btn-default">
+    <span class="glyphicon glyphicon-triangle-left"></span>
+    back to band page
+  </a>
+  <div class="jumbotron hero-spacer text-center">
+    <h1>Edit Band Info</h1>
+  </div>
+  <%= render 'form', band: @band %>
+</div>

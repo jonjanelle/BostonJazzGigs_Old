@@ -1,3 +1,36 @@
 // Place all the styles related to the bands controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.band-tile {
+  height: 45vh;
+  padding: 10px;
+  width: 96%;
+  margin: 0 2% 10px 2%;
+  overflow: hidden;
+  border: 1px solid rgba(150,150,150,.7);
+  border-radius: 8px;
+  transition: .4s ease-in-out;
+}
+
+.band-tile:hover {
+  overflow-y: scroll;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 12px 30px -5px rgba(0,0,0,0.7);
+  -moz-box-shadow: 0px 12px 30px -5px rgba(0,0,0,0.7);
+  box-shadow: 0px 12px 30px -5px rgba(0,0,0,0.7);
+}
+
+.band-tile-subheading {
+    text-align: center;
+    font-weight: bold;
+}
+
+.band-tile-content {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.padded-10 {
+  padding: 10px;
+}
