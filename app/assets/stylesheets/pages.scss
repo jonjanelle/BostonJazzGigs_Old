@@ -165,6 +165,15 @@ aside {
     color: #F05F40;
   }
 }
+
+.band-select-bg {
+  background-image: image-url('band_select_sm.jpeg');
+}
+
+.musician-select-bg {
+  background-image: image-url('musician_select_sm.jpeg');
+}
+
 header {
   position: relative;
   width: 100%;
@@ -174,7 +183,7 @@ header {
   background-size: cover;
   -o-background-size: cover;
   background-position: center;
-  background-image: url('header.jpg');
+  background-image: image-url("header.jpg");
   text-align: center;
   color: white;
 }
@@ -471,15 +480,6 @@ body {
 }
 .band-select-bg, .musician-select-bg {
     background-size: cover;
-}
-
-.band-select-bg {
-  background-image: url('band_select_sm.jpeg');
-
-}
-
-.musician-select-bg {
-  background-image: url('musician_select_sm.jpeg');
 }
 
 .glyph-lg {
