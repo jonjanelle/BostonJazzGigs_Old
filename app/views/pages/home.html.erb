@@ -74,7 +74,7 @@
   <div class="container-fluid">
     <div class="row no-gutter">
       <div class="col-lg-4 col-sm-6">
-        <a href="/bands/1" class="portfolio-box">
+        <a href=<%= band_path(1) %> class="portfolio-box">
           <div class="portfolio-box">
             <%= image_tag "featured/featured_1.jpg", class: "img-responsive" %>
             <div class="portfolio-box-caption">
@@ -91,7 +91,7 @@
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="/bands/2" class="portfolio-box">
+        <a href=<%= band_path(2) %> class="portfolio-box">
           <%= image_tag "featured/featured_2.jpg", class: "img-responsive" %>
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
@@ -106,7 +106,7 @@
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="/bands/3" class="portfolio-box">
+        <a href=<%= band_path(3) %> class="portfolio-box">
           <%= image_tag "featured/featured_3.jpg", class: "img-responsive" %>
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
@@ -121,8 +121,8 @@
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="/bands/4" class="portfolio-box">
-          <img src=<%= image_path("featured/featured_4.jpg") %> class="img-responsive" alt="">
+        <a href=<%= band_path(4) %> class="portfolio-box">
+          <%= image_tag "featured/featured_4.jpg", class: "img-responsive" %>
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
               <div class="project-category text-faded">
@@ -136,8 +136,8 @@
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="/bands/5" class="portfolio-box">
-          <img src=<%= image_path("featured/featured_5.jpg") %> class="img-responsive" alt="">
+        <a href=<%= band_path(5) %> class="portfolio-box">
+          <%= image_tag "featured/featured_5.jpg", class: "img-responsive" %>
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
               <div class="project-category text-faded">
@@ -151,8 +151,8 @@
         </a>
       </div>
       <div class="col-lg-4 col-sm-6">
-        <a href="/bands/6" class="portfolio-box">
-          <img src=<%= image_path("featured/featured_6.jpg") %> class="img-responsive" alt="">
+        <a href=<%= band_path(6) %> class="portfolio-box">
+          <%= image_tag "featured/featured_6.jpg", class: "img-responsive" %>
           <div class="portfolio-box-caption">
             <div class="portfolio-box-caption-content">
               <div class="project-category text-faded">
