@@ -46,7 +46,14 @@ band_data = [{ name: "The Wolverine Jazz Band",
                 zipcode: "02151",
                 radius: 70 },
 
-             { name: "Operating Thetan Level 8",
+              { name: "Rusty Wrenches",
+                genre: "Jazz",
+                description: "Our skills are even rustier than our wrenches.
+                              We'll put on a show that you'll remember for minutes.",
+                zipcode: "01851",
+                radius: 70 },
+
+             { name: "OT-8",
                genre: "Desconstructed alt-retro-post-jazz disco fusion",
                description: "Bringing a heavy dosage of our sweet melodies to a gig near you.",
                zipcode: "02152",
@@ -64,7 +71,10 @@ musician_data = [ {firstname: "Jeff", lastname: "Hughes", instrument: "Trumpet",
                   {firstname: "Lisa", lastname: "McJazzface", instrument: "Saxophone", bio:"Bio 10"},
                   {firstname: "Lumpy", lastname: "Blobberson", instrument: "Trumpet", bio:"Bio 11"},
                   {firstname: "Stick", lastname: "Stickly", instrument: "Vocals", bio:"Bio 12"},
-                  {firstname: "Pee-wee", lastname: "Herman", instrument: "Bass", bio:"Bio 13"}]
+                  {firstname: "Hayley", lastname: "Didriksen", instrument: "Spoons", bio:"Bio 13"},
+                  {firstname: "Drew", lastname: "Didriksen", instrument: "Ukulele", bio:"Bio 14"},
+                  {firstname: "Cathy", lastname: "Didriksen", instrument: "Banjo", bio:"Bio 15"},
+                  {firstname: "Pee-wee", lastname: "Herman", instrument: "Bass", bio:"Bio 16"}]
 
 band_data.each {|data| Band.create(name: data[:name],
                                    genre: data[:genre],
