@@ -7,13 +7,13 @@
   </a>
   <!-- Jumbotron Header -->
   <div class="jumbotron hero-spacer text-center">
-    <h1><%= @band.name %></h1>
-    <h3>Genre:
-      <%= @band.genre %></h3>
-    <p><%= @band.description %></p>
+    <h1><%= @musician.firstname + " " + @musician.lastname %></h1>
+    <h3>Instrument:
+      <%= @musician.instrument %></h3>
+    <p><%= @musician.bio %></p>
     <p>
-      <a href="#" class="btn btn-primary">Contact Band Now</a>
-      <%= link_to 'Edit Band Info', edit_band_path(@band), class: "btn btn-info" %>
+      <a href="#" class="btn btn-primary">Contact Musician Now</a>
+      <%= link_to 'Edit Musician Info', edit_musician_path(@musician), class: "btn btn-info" %>
     </p>
   </div>
 
@@ -22,22 +22,21 @@
   <!-- Title -->
   <div class="row">
     <div class="col-lg-12">
-      <h3>Band Members</h3>
+      <h3>Associated Bands</h3>
     </div>
   </div>
   <!-- /.row -->
 
   <!-- Page Features -->
   <div class="row text-center">
-    <% @band.musicians.each do |musician| %>
+    <% @musician.bands.each do |band| %>
     <div class="col-md-3 col-sm-6 hero-feature">
       <div class="thumbnail">
         <img src="http://placehold.it/800x500" alt="">
         <div class="caption">
-          <h3><%= musician.firstname + " " + musician.lastname %></h3>
-          <p><%= musician.instrument %></p>
+          <h3><%= band.name %></h3>
           <p>
-            <%= link_to 'More Info', musician_path(musician.id), class: "btn btn-primary" %>
+            <%= link_to 'More Info', band_path(band.id), class: "btn btn-primary" %>
           </p>
         </div>
       </div>

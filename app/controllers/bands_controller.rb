@@ -1,11 +1,11 @@
 class BandsController < ApplicationController
   def index
-    @bands = Band.includes(:musicians).all
+    @bands = Band.all
   end
 
   # GET /bands/1
   def show
-    @band = Band.find(params[:id])
+    @band = Band.includes(:musicians).find(params[:id])
   end
 
   # GET /bands/new
@@ -34,7 +34,7 @@ class BandsController < ApplicationController
   # PATCH/PUT /bands/1
   def update
     respond_to do |format|
-    @band = Band.find(params[:id])
+    @band = Band.includes(:musicians).find(params[:id])
       if @band.update(band_params)
         format.html { redirect_to @band, notice: 'Band was successfully updated.' }
       else

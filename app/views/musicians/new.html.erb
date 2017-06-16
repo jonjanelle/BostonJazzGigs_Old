@@ -1,2 +1,10 @@
-<h1>Musicians#new</h1>
-<p>Find me in app/views/musicians/new.html.erb</p>
+<div class="container-fluid nav-buffer">
+  <a href="/" class="btn btn-default">
+    <span class="glyphicon glyphicon-triangle-left"></span>
+    back home
+  </a>
+  <div class="jumbotron hero-spacer text-center">
+    <h1>Create New Band</h1>
+  </div>
+  <%= render 'form', band: @band %>
+</div>

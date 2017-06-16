@@ -1,0 +1,56 @@
+<%= form_with(model: @musician, local: true) do |form| %>
+<% if @musician.errors.any? %>
+<div class="alert alert-danger alert-dismissible fade in" role=alert>
+  <button type=button class=close data-dismiss=alert aria-label=Close>
+    <span aria-hidden=true>&times;</span>
+  </button>
+  <h2><%= pluralize(@musician.errors.count, "error") %>
+    prohibited this musician from being saved:</h2>
+  <ul>
+    <% @musician.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<div class="field">
+  <%= form.label :firstname %><br>
+  <%= form.text_field :firstname, id: :musician_firstname %>
+</div>
+
+<div class="field">
+  <%= form.label :lastname %><br>
+  <%= form.text_field :lastname, id: :musician_lastname %>
+</div>
+
+<div class="field">
+  <%= form.label :instrument %><br>
+  <%= form.text_field :instrument, id: :musician_instrument %>
+</div>
+
+<div class="field">
+  <%= form.label :instrument2 %><br>
+  <%= form.text_field :instrument2, id: :musician_instrument2 %>
+</div>
+
+<div class="field">
+  <%= form.label :email %><br>
+  <%= form.text_field :email, id: :musician_email %>
+</div>
+
+<div class="field">
+  <%= form.label :image %><br>
+  <%= form.text_field :image, id: :musician_image %>
+</div>
+
+<div class="field">
+  <%= form.label :bio %><br>
+  <%= form.text_field :bio, id: :musician_bio %>
+</div>
+
+<br>
+<div class="actions">
+  <%= form.submit %>
+</div>
+<% end %>
