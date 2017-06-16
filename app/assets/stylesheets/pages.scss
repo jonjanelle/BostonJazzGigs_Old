@@ -255,11 +255,9 @@ header .header-content .header-content-inner p {
 .portfolio-box {
   position: relative;
   display: block;
-  width: 650px;
+  max-width: 650px;
   margin: 0 auto;
 }
-
-
 .portfolio-box .portfolio-box-caption {
   color: white;
   opacity: 0;
@@ -319,6 +317,7 @@ header .header-content .header-content-inner p {
   padding-right: 0;
   padding-left: 0;
 }
+
 .btn-default {
   color: #222222;
   background-color: white;
@@ -477,6 +476,7 @@ body {
 
 .panel-tall {
   min-height: 80vh;
+  width: auto;
 }
 .band-select-bg, .musician-select-bg {
     background-size: cover;

@@ -375,11 +375,11 @@ header .header-content .header-content-inner p {
 .portfolio-box {
   position: relative;
   display: block;
-  width: 650px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
-/* line 263, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 261, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .portfolio-box .portfolio-box-caption {
   color: white;
   opacity: 0;
@@ -395,7 +395,7 @@ header .header-content .header-content-inner p {
   transition: all 0.35s;
 }
 
-/* line 277, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 275, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
   width: 100%;
   text-align: center;
@@ -404,64 +404,64 @@ header .header-content .header-content-inner p {
   transform: translateY(-50%);
 }
 
-/* line 284, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 282, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category,
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   padding: 0 15px;
 }
 
-/* line 289, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 287, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
   text-transform: uppercase;
   font-weight: 600;
   font-size: 14px;
 }
 
-/* line 294, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 292, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
   font-size: 18px;
 }
 
-/* line 297, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 295, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .portfolio-box:hover .portfolio-box-caption {
   opacity: 1;
 }
 
-/* line 300, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 298, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .portfolio-box:focus {
   outline: none;
 }
 
 @media (min-width: 768px) {
-  /* line 304, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+  /* line 302, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-category {
     font-size: 16px;
   }
 
-  /* line 307, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+  /* line 305, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
   .portfolio-box .portfolio-box-caption .portfolio-box-caption-content .project-name {
     font-size: 22px;
   }
 }
-/* line 311, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 309, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .call-to-action h2 {
   margin: 0 auto;
   padding: 0;
 }
 
-/* line 315, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 313, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .text-primary {
   color: #F05F40;
 }
 
-/* line 318, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 316, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .no-gutter > [class*='col-'] {
   padding-right: 0;
   padding-left: 0;
 }
 
-/* line 322, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 321, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-default {
   color: #222222;
   background-color: white;
@@ -471,7 +471,7 @@ header .header-content .header-content-inner p {
   transition: all 0.35s;
 }
 
-/* line 330, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 329, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-default:hover,
 .btn-default:focus,
 .btn-default.focus,
@@ -483,14 +483,14 @@ header .header-content .header-content-inner p {
   border-color: #ededed;
 }
 
-/* line 340, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 339, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-default:active,
 .btn-default.active,
 .open > .dropdown-toggle.btn-default {
   background-image: none;
 }
 
-/* line 345, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 344, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-default.disabled,
 .btn-default[disabled],
 fieldset[disabled] .btn-default,
@@ -513,13 +513,13 @@ fieldset[disabled] .btn-default.active {
   border-color: white;
 }
 
-/* line 366, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 365, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-default .badge {
   color: white;
   background-color: #222222;
 }
 
-/* line 370, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 369, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-primary {
   color: white;
   background-color: #F05F40;
@@ -529,7 +529,7 @@ fieldset[disabled] .btn-default.active {
   transition: all 0.35s;
 }
 
-/* line 378, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 377, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.focus,
@@ -541,14 +541,14 @@ fieldset[disabled] .btn-default.active {
   border-color: #ed431f;
 }
 
-/* line 388, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 387, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-primary:active,
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
   background-image: none;
 }
 
-/* line 393, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 392, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-primary.disabled,
 .btn-primary[disabled],
 fieldset[disabled] .btn-primary,
@@ -571,13 +571,13 @@ fieldset[disabled] .btn-primary.active {
   border-color: #F05F40;
 }
 
-/* line 414, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 413, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-primary .badge {
   color: #F05F40;
   background-color: white;
 }
 
-/* line 418, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 417, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn {
   font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
   border: none;
@@ -586,50 +586,50 @@ fieldset[disabled] .btn-primary.active {
   text-transform: uppercase;
 }
 
-/* line 425, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 424, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .btn-xl {
   padding: 15px 30px;
 }
 
-/* line 428, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 427, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 ::-moz-selection {
   color: white;
   text-shadow: none;
   background: #222222;
 }
 
-/* line 433, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 432, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 ::selection {
   color: white;
   text-shadow: none;
   background: #222222;
 }
 
-/* line 438, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 437, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 img::selection {
   color: white;
   background: transparent;
 }
 
-/* line 442, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 441, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 img::-moz-selection {
   color: white;
   background: transparent;
 }
 
-/* line 446, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 445, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 body {
   webkit-tap-highlight-color: #222222;
 }
 
-/* line 451, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 450, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .shade-box-m {
   background-color: rgba(25, 25, 25, 0.85);
   padding: 20px;
   border-radius: 10px;
 }
 
-/* line 457, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 456, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .selection-box {
   min-height: 30vh;
   line-height: 30vh;
@@ -643,7 +643,7 @@ body {
   transition: .5s ease-in-out;
 }
 
-/* line 470, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 469, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .selection-box:hover {
   -webkit-box-shadow: 0px 12px 30px -5px rgba(0, 0, 0, 0.7);
   -moz-box-shadow: 0px 12px 30px -5px rgba(0, 0, 0, 0.7);
@@ -652,9 +652,10 @@ body {
   cursor: pointer;
 }
 
-/* line 478, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
+/* line 477, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
 .panel-tall {
   min-height: 80vh;
+  width: auto;
 }
 
 /* line 481, C:/Users/Jon/Google Drive/BostonJazzGigs/app/assets/stylesheets/pages.scss */
@@ -716,7 +717,8 @@ body {
 
  */
 
+@import "bootstrap/bootstrap.css";
 @import "magnificpopup/magnific-popup.css";
-@import "./pages.scss";
-@import "./musicians.scss";
-@import "./bands.scss";
+@import "pages.scss";
+@import "musicians.scss";
+@import "bands.scss";
