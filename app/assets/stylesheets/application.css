@@ -15,4 +15,6 @@
  */
 @import "bootstrap/bootstrap.css";
 @import "magnificpopup/magnific-popup.css";
-@import "pages.scss"
+@import "pages.scss";
+@import "bands.scss";
+@import "musicians.scss";
