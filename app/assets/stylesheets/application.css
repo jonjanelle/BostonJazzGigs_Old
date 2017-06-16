@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-@import "bootstrap/bootstrap.css";
 @import "magnificpopup/magnific-popup.css";
 @import "./pages.scss";
 @import "./musicians.scss";
