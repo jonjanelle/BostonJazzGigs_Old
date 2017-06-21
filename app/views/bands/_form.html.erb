@@ -1,55 +1,59 @@
-<%= form_with(model: @band, local: true) do |form| %>
-<% if @band.errors.any? %>
-<div class="alert alert-danger alert-dismissible fade in" role=alert>
-  <button type=button class=close data-dismiss=alert aria-label=Close>
-    <span aria-hidden=true>&times;</span>
-  </button>
-  <h2><%= pluralize(@band.errors.count, "error") %>
-    prohibited this band from being saved:</h2>
-  <ul>
-    <% @band.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<div class="container">
+  <%= form_with(model: @band, local: true) do |form| %>
+  <% if @band.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade in" role=alert>
+    <button type=button class=close data-dismiss=alert aria-label=Close>
+      <span aria-hidden=true>&times;</span>
+    </button>
+    <h2><%= pluralize(@band.errors.count, "error") %>
+      prohibited this band from being saved:</h2>
+    <ul>
+      <% @band.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
-<div class="field">
-  <%= form.label :name %><br>
-  <%= form.text_field :name, id: :band_name %>
-</div>
+  <div class="field form-group">
+    <%= form.label :name, "Band Name" %><br>
+    <%= form.text_field :name, id: :band_name, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :genre %><br>
-  <%= form.text_field :genre, id: :band_genre %>
-</div>
+  <div class="field form-group">
+    <%= form.label :genre %><br>
+    <%= form.text_field :genre, id: :band_genre, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :description %><br>
-  <%= form.text_field :description, id: :band_description %>
-</div>
+  <div class="field form-group">
+    <%= form.label :description  %><br>
+    <%= text_area_tag(:description,"", id: :band_description, rows:5, cols:32, class: "form-control") %>
 
-<div class="field">
-  <%= form.label :image %><br>
-  <%= form.text_field :image, id: :band_image %>
-</div>
+  </div>
 
-<div class="field">
-  <%= form.label :songdemo %><br>
-  <%= form.text_field :songdemo, id: :band_songdemo %>
-</div>
+  <div class="field form-group">
+    <%= form.label :image, "Band Photo" %><br>
+    <%= form.file_field :image, id: :band_image, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :zipcode %><br>
-  <%= form.text_field :zipcode, id: :band_zipcode %>
-</div>
+  <div class="field form-group">
+    <%= form.label :songdemo, "Song Demo File" %><br>
+    <%= form.file_field :songdemo, id: :band_songdemo, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :radius %><br>
-  <%= form.number_field :radius, id: :band_radius %>
+  <div class="field form-group">
+    <%= form.label :zipcode, "Band Home Zip Code" %><br>
+    <%= form.text_field :zipcode, id: :band_zipcode, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :radius, "How many miles from your home zip code are you willing to travel?" %><br>
+    <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", placeholder:0, data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance"  %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+  <% end %>
 </div>
-<br>
-<div class="actions">
-  <%= form.submit %>
-</div>
-<% end %>
+<br><br>
