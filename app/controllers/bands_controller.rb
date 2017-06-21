@@ -53,6 +53,6 @@ class BandsController < ApplicationController
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def band_params
-    params.require(:band).permit(:name, :genre, :description, :image, :songdemo, :zipcode, :radius)
+    params.require(:band).permit(:name, :genre, :description, :image, :songdemo1, :zipcode, :radius)
   end
 end

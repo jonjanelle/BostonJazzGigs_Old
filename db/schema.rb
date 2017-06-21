@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615110207) do
+ActiveRecord::Schema.define(version: 20170621154556) do
 
   create_table "band_musicians", force: :cascade do |t|
     t.integer "band_id"
@@ -25,10 +25,13 @@ ActiveRecord::Schema.define(version: 20170615110207) do
     t.string "name", null: false
     t.string "genre", null: false
     t.text "description", null: false
+    t.string "email"
+    t.text "url"
+    t.binary "image"
+    t.binary "songdemo1"
+    t.binary "songdemo2"
     t.string "zipcode"
     t.integer "radius"
-    t.string "image"
-    t.string "songdemo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,11 +39,21 @@ ActiveRecord::Schema.define(version: 20170615110207) do
   create_table "musicians", force: :cascade do |t|
     t.string "firstname", limit: 50, null: false
     t.string "lastname", limit: 50, null: false
-    t.string "email"
     t.string "instrument", null: false
     t.string "instrument2"
-    t.text "bio"
     t.string "image"
+    t.text "bio"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_musicians_on_user_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "username", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "user_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

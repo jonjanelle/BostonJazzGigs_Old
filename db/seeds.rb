@@ -59,6 +59,8 @@ band_data = [{ name: "The Wolverine Jazz Band",
                zipcode: "02152",
                radius: 15 }]
 
+
+
 musician_data = [ {firstname: "Jeff", lastname: "Hughes", instrument: "Trumpet", bio:"Bio 1"},
                   {firstname: "David", lastname: "Didriksen", instrument: "Percussion", bio:"Bio 2"},
                   {firstname: "John", lastname: "Clark", instrument: "Clarinet", bio:"Bio 3"},
@@ -76,16 +78,28 @@ musician_data = [ {firstname: "Jeff", lastname: "Hughes", instrument: "Trumpet",
                   {firstname: "Cathy", lastname: "Didriksen", instrument: "Banjo", bio:"Bio 15"},
                   {firstname: "Pee-wee", lastname: "Herman", instrument: "Bass", bio:"Bio 16"}]
 
+#create one user accounts for each musician
+musician_data.length.times do |i|
+  User.create(username: "user"+i.to_s,
+              email: "user"+i.to_s+"@test.com",
+              password: "password"+i.to_s,
+              user_type: "m")
+end
+puts "#{musician_data.length} User accounts created"
+
+musician_data.each_with_index {|data, index| Musician.create(firstname: data[:firstname],
+                                             lastname: data[:lastname],
+                                             instrument: data[:instrument],
+                                             bio: data[:bio],
+                                             user_id: index+1)}
+puts "#{musician_data.length} Musician entries created"
+
 band_data.each {|data| Band.create(name: data[:name],
                                    genre: data[:genre],
                                    description: data[:description],
                                    zipcode: data[:zipcode],
                                    radius: data[:radius])}
-
-musician_data.each {|data| Musician.create(firstname: data[:firstname],
-                                          lastname: data[:lastname],
-                                          instrument: data[:instrument],
-                                          bio: data[:bio])}
+puts "#{band_data.length} Band entries created"
 
 bands = Band.all()
 musicians = Musician.all()

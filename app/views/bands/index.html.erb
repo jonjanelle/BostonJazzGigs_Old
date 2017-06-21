@@ -25,9 +25,9 @@
 
           <div class="col col-md-6 col-xs-12">
             <div class="band-tile-subheading">Audio Samples</div>
-            <% if band.songdemo!=nil %>
+            <% if band.songdemo1!=nil %>
               <audio controls>
-                <source src="<%= asset_path(band.songdemo) %>" type="audio/mpeg">
+                <source src="<%= band.songdemo1 %>" type="audio/mpeg">
                 Your browser does not support the audio element.
               </audio>
             <% else %>
