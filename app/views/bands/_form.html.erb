@@ -5,8 +5,9 @@
     <button type=button class=close data-dismiss=alert aria-label=Close>
       <span aria-hidden=true>&times;</span>
     </button>
-    <h2><%= pluralize(@band.errors.count, "error") %>
-      prohibited this band from being saved:</h2>
+    <h3>
+      <%= pluralize(@band.errors.count, "error") %>
+      stopped your changes from being saved:</h3>
     <ul>
       <% @band.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -16,42 +17,77 @@
   <% end %>
 
   <div class="field form-group">
+    <span class="glyphicon glyphicon-asterisk warning-asterisk" aria-hidden="true"></span>
     <%= form.label :name, "Band Name" %><br>
-    <%= form.text_field :name, id: :band_name, class: "form-control" %>
+    <%= form.text_field :name, id: :band_name, class: "form-control", placeholder: "Band name is required." %>
   </div>
 
   <div class="field form-group">
+    <span class="glyphicon glyphicon-asterisk warning-asterisk" aria-hidden="true"></span>
+    <%= form.label :email, "Band Email Address" %><br>
+    <%= form.text_field :email, id: :band_email, class: "form-control", placeholder: "A valid e-mail address is required." %>
+  </div>
+
+  <div class="field form-group">
+    <span class="glyphicon glyphicon-asterisk warning-asterisk" aria-hidden="true"></span>
     <%= form.label :genre %><br>
-    <%= form.text_field :genre, id: :band_genre, class: "form-control" %>
+    <%= form.text_field :genre, id: :band_genre, class: "form-control", placeholder: "You can list multiple genres separated by commas." %>
   </div>
 
   <div class="field form-group">
+    <span class="glyphicon glyphicon-asterisk warning-asterisk" aria-hidden="true"></span>
     <%= form.label :description  %><br>
-    <%= text_area_tag(:description,"", id: :band_description, rows:5, cols:32, class: "form-control") %>
+    <%= form.text_area :description, id: :band_description, cols:"30", rows:"8", class: "form-control", placeholder:"Why might you be the right band for the job?" %>
   </div>
 
   <div class="field form-group">
-    <%= form.label :image, "Band Photo" %><br>
+    <%= form.label :image, "Profile Photo (jpeg)" %><br>
     <%= form.file_field :image, id: :band_image, class: "form-control" %>
   </div>
 
-  <div class="field form-group">
-    <%= form.label :songdemo1, "Song Demo File" %><br>
-    <%= form.file_field :songdemo1, id: :band_songdemo1, class: "form-control" %>
+  <div class="row">
+    <div class="col col-md-4 col-xs-6">
+      <div class="field form-group">
+        <%= form.label :songdemo1_title, "Song Demo 1 Title" %>
+        <%= form.text_field :songdemo1_title, id: :band_songdemo1_title, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col col-md-8 col-xs-6">
+      <div class="field form-group">
+        <%= form.label :songdemo1, "Song Demo 1 File (mp3 or wav)" %><br>
+        <%= form.file_field :songdemo1, id: :band_songdemo1, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col col-md-4 col-xs-6">
+      <div class="field form-group">
+        <%= form.label :songdemo2_title, "Song Demo 2 Title" %>
+        <%= form.text_field :songdemo2_title, id: :band_songdemo2_title, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col col-md-8 col-xs-6">
+      <div class="field form-group">
+        <%= form.label :songdemo2, "Song Demo 2 File (mp3 or wav)" %><br>
+        <%= form.file_field :songdemo2, id: :band_songdemo2, class: "form-control" %>
+      </div>
+    </div>
   </div>
 
   <div class="field form-group">
     <%= form.label :zipcode, "Band Home Zip Code" %><br>
-    <%= form.text_field :zipcode, id: :band_zipcode, class: "form-control" %>
+    <%= form.text_field :zipcode, id: :band_zipcode, class: "form-control", placeholder: "Used to recommend gigs within your travel radius."  %>
   </div>
 
   <div class="field form-group">
-    <%= form.label :radius, "How many miles from your home zip code are you willing to travel?" %><br>
-    <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", placeholder:0, data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance"  %>
+    <%= form.label :radius, "How many miles from home are you willing to travel?" %><br>
+    <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", placeholder:0, data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance", placeholder: "Enter 0 if you're willing to
+    consider travelling any distance." %>
   </div>
   <br>
   <div class="actions">
-    <%= form.submit class: "btn btn-primary" %>
+    <%= form.submit class: "btn btn-primary btn-lg" %>
   </div>
   <% end %>
 </div>

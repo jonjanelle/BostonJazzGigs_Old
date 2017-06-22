@@ -2,7 +2,5 @@ class Band < ApplicationRecord
   has_many :band_musicians
   has_many :musicians, through: :band_musicians
 
-  validates :name, presence: true
-  validates :genre, presence: true
-  validates :description, presence: true
+  validates_presence_of :name, :genre, :description, :email
 end

@@ -3,7 +3,6 @@
 one:
   firstname: MyString
   lastname: MyString
-  email: MyString
   instrument: MyString
   instrument2: MyString
   bio: MyText
@@ -11,7 +10,6 @@ one:
 two:
   firstname: MyString
   lastname: MyString
-  email: MyString
   instrument: MyString
   instrument2: MyString
   bio: MyText

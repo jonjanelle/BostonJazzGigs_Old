@@ -5,7 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 band_data = [{ name: "The Wolverine Jazz Band",
                genre: "Dixieland",
                description: "Since 1995 the Wolverine Jazz Band has been
@@ -16,6 +15,7 @@ band_data = [{ name: "The Wolverine Jazz Band",
                             varnish on church pews in the Boston suburbs. The band can
                             arrange Dixieland or Swing performances to suit all venues and budgets.",
                zipcode: "01720",
+               email: "test@test.com",
                radius: 60 },
 
              { name: "Swing Times Five",
@@ -24,12 +24,14 @@ band_data = [{ name: "The Wolverine Jazz Band",
                             eras, in concerts, dances, weddings, and festival settings. Hot dance tunes,
                             sweet ballads, and toe-tapping standards are presented with flair and
                             sophistication, adapted to meet the individual needs of each venue.",
+               email: "test@test.com",
                zipcode: "01720",
                radius: 100 },
 
              { name: "The McTootersons",
                genre: "jazz",
                description: "Tootin' their own horns since 1932.",
+               email: "test@test.com",
                zipcode: "02155",
                radius: 30 },
 
@@ -37,12 +39,14 @@ band_data = [{ name: "The Wolverine Jazz Band",
               genre: "jazz",
               description: "The Cracked Mugs are a jazz band. According to WikiPedia, this means
                             that they are a musical ensemble that plays jazz music. The end.",
+              email: "test@test.com",
               zipcode: "02150",
               radius: 230 },
 
               { name: "The Starving Savants",
                 genre: "jazz",
                 description: "We haven't been paid in months. Please help us.",
+                email: "test@test.com",
                 zipcode: "02151",
                 radius: 70 },
 
@@ -50,23 +54,23 @@ band_data = [{ name: "The Wolverine Jazz Band",
                 genre: "Jazz",
                 description: "Our skills are even rustier than our wrenches.
                               We'll put on a show that you'll remember for minutes.",
+                email: "test@test.com",
                 zipcode: "01851",
                 radius: 70 },
 
              { name: "OT-8",
                genre: "Desconstructed alt-retro-post-jazz disco fusion",
+               email: "test@test.com",
                description: "Bringing a heavy dosage of our sweet melodies to a gig near you.",
                zipcode: "02152",
                radius: 15 }]
-
-
 
 musician_data = [ {firstname: "Jeff", lastname: "Hughes", instrument: "Trumpet", bio:"Bio 1"},
                   {firstname: "David", lastname: "Didriksen", instrument: "Percussion", bio:"Bio 2"},
                   {firstname: "John", lastname: "Clark", instrument: "Clarinet", bio:"Bio 3"},
                   {firstname: "Tom", lastname: "Boates", instrument: "Trombone", bio:"Bio 4"},
                   {firstname: "Ross", lastname: "Petot", instrument: "Piano", bio:"Bio 5"},
-                  {firstname: "Rick", lastname: "MacWillians", instrument: "Tuba", bio:"Bio 6"},
+                  {firstname: "Rick", lastname: "MacWilliams", instrument: "Tuba", bio:"Bio 6"},
                   {firstname: "Dan", lastname: "Weiner", instrument: "Guitar", bio:"Bio 7"},
                   {firstname: "Debbie", lastname: "Larkin", instrument: "Vocals", bio:"Bio 8"},
                   {firstname: "Pete", lastname: "Tillotson", instrument: "Percussion", bio:"Bio 9"},
@@ -76,30 +80,30 @@ musician_data = [ {firstname: "Jeff", lastname: "Hughes", instrument: "Trumpet",
                   {firstname: "Hayley", lastname: "Didriksen", instrument: "Spoons", bio:"Bio 13"},
                   {firstname: "Drew", lastname: "Didriksen", instrument: "Ukulele", bio:"Bio 14"},
                   {firstname: "Cathy", lastname: "Didriksen", instrument: "Banjo", bio:"Bio 15"},
-                  {firstname: "Pee-wee", lastname: "Herman", instrument: "Bass", bio:"Bio 16"}]
+                  {firstname: "Pee-wee", lastname: "Herman", instrument: "Bass", bio:"Bio 16"} ]
 
 #create one user accounts for each musician
 musician_data.length.times do |i|
-  User.create(username: "user"+i.to_s,
+  User.create!(username: "user"+i.to_s,
               email: "user"+i.to_s+"@test.com",
               password: "password"+i.to_s,
               user_type: "m")
 end
-puts "#{musician_data.length} User accounts created"
+puts "#{User.count} User accounts created"
 
-musician_data.each_with_index {|data, index| Musician.create(firstname: data[:firstname],
-                                             lastname: data[:lastname],
-                                             instrument: data[:instrument],
-                                             bio: data[:bio],
-                                             user_id: index+1)}
-puts "#{musician_data.length} Musician entries created"
+musician_data.each_with_index do |data, index|
+  Musician.create!(firstname: data[:firstname], lastname: data[:lastname],
+                  instrument: data[:instrument], bio: data[:bio],
+                  user_id: index+1)
+end
+puts "#{Musician.count} Musician entries created"
 
-band_data.each {|data| Band.create(name: data[:name],
-                                   genre: data[:genre],
-                                   description: data[:description],
-                                   zipcode: data[:zipcode],
-                                   radius: data[:radius])}
-puts "#{band_data.length} Band entries created"
+band_data.each do |data|
+  Band.create!(name: data[:name], genre: data[:genre],
+              description: data[:description], zipcode: data[:zipcode],
+              radius: data[:radius], email: data[:email])
+end
+puts "#{Band.count} Band entries created"
 
 bands = Band.all()
 musicians = Musician.all()
@@ -114,6 +118,7 @@ bands.each do |b|
       m = r.rand(0...musicians.length)
     end
     used << m
-    b.band_musicians.create(musician_id: musicians[m].id)
+    b.band_musicians.create!(musician_id: musicians[m].id)
   end
 end
+puts "#{BandMusician.count} Band/Musician pairings created"

@@ -1,0 +1,12 @@
+<% provide(:title, "Create Band Account") %>
+<div class="container nav-buffer">
+  <a href="/" class="btn btn-default">
+    <span class="glyphicon glyphicon-triangle-left"></span>
+    back home
+  </a>
+  <div class="jumbotron hero-spacer text-center alert-success">
+    <h1>Create New Account</h1>
+    <h3>It only takes a few minutes to create your account, musician profile, and band page!</h3>
+  </div>
+  <%= render 'users/form', band: @band, type: 'm' %>
+</div>

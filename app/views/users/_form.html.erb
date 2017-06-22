@@ -1,0 +1,45 @@
+<div class="container">
+  <%= form_with(model: @user, local: true) do |form| %>
+  <% if @user.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade in" role=alert>
+    <button type=button class=close data-dismiss=alert aria-label=Close>
+      <span aria-hidden=true>&times;</span>
+    </button>
+    <h2>Warning: <%= pluralize(@user.errors.count, "error") %>
+     stopped your changes from being saved:</h2>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :username, "Username" %><br>
+    <%= form.text_field :username, id: :user_name, class: "form-control", placeholder: "Required. Must be at least 3 characters long."%>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :email, "E-mail Address" %><br>
+    <%= form.text_field :email, id: :user_email, class: "form-control", placeholder: "Required. This address will not be publicly posted."%>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password %><br>
+    <%= form.password_field :password, id: :user_password, class: "form-control", placeholder: "Required. Must be at least 6 characters long." %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :password_confirmation, "Password confirmation" %><br>
+    <%= form.password_field :password_confirmation, id: :user_password_confirmation, class: "form-control", placeholder: "Required. Must exactly match password." %>
+  </div>
+
+  <%= form.hidden_field :user_type, id: :user_type, class:"form-control"  %>
+  <br>
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary btn-lg" %>
+  </div>
+  <% end %>
+</div>
+<br><br>

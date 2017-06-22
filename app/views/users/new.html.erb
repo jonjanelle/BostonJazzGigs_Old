@@ -1,2 +1,12 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="container nav-buffer">
+  <a href="/" class="btn btn-default">
+    <span class="glyphicon glyphicon-triangle-left"></span>
+    back home
+  </a>
+  <div class="jumbotron hero-spacer text-center">
+    <h1>Create Your Account</h1>
+    <h3>It only takes a few minutes to create your account, musician profile, and band page</h3>
+
+  </div>
+  <%= render 'form', user: @user, type: 'u' %>
+</div>

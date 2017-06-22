@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  band: one
-  musician: one
+  band_id: one
+  musician_id: two
 
 two:
-  band: two
-  musician: two
+  band_id: two
+  musician_id: two
+
+three:
+  band_id: two
+  musician_id: one

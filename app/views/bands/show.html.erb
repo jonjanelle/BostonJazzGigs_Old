@@ -1,3 +1,4 @@
+<% provide(:title, @band.name) %>
 <!-- Page Content -->
 <div class="container-fluid nav-buffer">
   <p id="notice"><%= notice %></p>
@@ -10,19 +11,73 @@
     <h1><%= @band.name %></h1>
     <h3>Genre:
       <%= @band.genre %></h3>
-    <p><%= @band.description %></p>
-    <p>
-      <a href="#" class="btn btn-primary">Contact Band Now</a>
-      <%= link_to 'Edit Band Info', edit_band_path(@band), class: "btn btn-info" %>
-    </p>
-  </div>
 
+    <div class="row">
+      <div class="col col-md-12 top-margin-10">
+        <a href="#" class="btn btn-primary">Contact Band Now</a>
+      </div>
+      <div class="col col-md-12 top-margin-10">
+        <%= link_to 'Edit Band Profile', edit_band_path(@band), class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
   <hr>
+
+  <!-- Description, song demos, and image -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-md-12">
+        <h2 class="page-header">Band Info</h2>
+      </div>
+
+      <div class="col col-md-6 text-center">
+        <div class="row">
+          <div class="col col-md-12">
+            <h3 class="page-header">Description</h3>
+          </div>
+          <div class="col col-md-12">
+            <%= @band.description %>
+          </div>
+          <div class="col col-md-12 top-margin-10">
+            <h3 class="page-header">Demo Songs</h3>
+          </div>
+
+          <% if @band.songdemo1!=nil %>
+          <div class="col col-md-6">
+            <div class="band-tile-subheading"><%= @band.songdemo1_title.blank? ? 'Untitled':@band.songdemo1_title %> </div>
+            <audio controls>
+              <source src="<%= @band.songdemo1 %>" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          <% else %>
+            <div class="col col-md-12">
+              Sorry, no samples are available for this artist!
+            </div>
+          <% end %>
+
+          <% if @band.songdemo2!=nil %>
+          <div class="col col-md-6">
+            <div class="band-tile-subheading"><%= @band.songdemo2_title.blank? ? 'Untitled':@band.songdemo2_title %> </div>
+            <audio controls>
+              <source src="<%= @band.songdemo2 %>" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+          </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col col-md-6 top-margin-10">
+        <img class="img-responsive img-rounded" src="http://lorempixel.com/800/400/" alt="">
+      </div>
+    </div>
+  </div>
+  <!-- /.row -->
 
   <!-- Title -->
   <div class="row">
     <div class="col-lg-12">
-      <h3>Band Members</h3>
+      <h3 class="page-header">Band Members</h3>
     </div>
   </div>
   <!-- /.row -->
@@ -30,9 +85,9 @@
   <!-- Page Features -->
   <div class="row text-center">
     <% @band.musicians.each do |musician| %>
-    <div class="col-md-3 col-sm-6 hero-feature">
+    <div class="col-md-3 col-sm-4 col-xs-6 hero-feature">
       <div class="thumbnail">
-        <img src="http://placehold.it/800x500" alt="">
+        <img src="http://lorempixel.com/400/250/" alt="">
         <div class="caption">
           <h3><%= musician.firstname + " " + musician.lastname %></h3>
           <p><%= musician.instrument %></p>

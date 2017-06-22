@@ -1,3 +1,4 @@
+<% provide(:title, "View Bands") %>
 <div class="container-fluid nav-buffer">
   <p id="notice"><%= notice %></p>
   <div class="row text-center">
@@ -14,7 +15,7 @@
         <div class="row text-center">
           <div class="col col-md-12">
             <h2>
-              <a href="<%= bands_path %>/<%= band.id %>"><%= band.name %></a>
+              <a href="<%= band_path(band.id) %>"><%= band.name %></a>
             </h2>
           </div>
         </div>

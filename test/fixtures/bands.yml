@@ -5,6 +5,7 @@ one:
   genre: MyString
   description: MyText
   zipcode: MyString
+  email: MyEmail@test.com
   radius: 1
 
 two:
@@ -12,4 +13,5 @@ two:
   genre: MyString
   description: MyText
   zipcode: MyString
+  email: test@test.com
   radius: 1

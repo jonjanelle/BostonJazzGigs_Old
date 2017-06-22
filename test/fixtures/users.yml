@@ -5,13 +5,10 @@ one:
   email: MyString
   password_digest: MyString
   user_type: MyString
-  band: one
-  musician: one
+
 
 two:
   username: MyString
   email: MyString
   password_digest: MyString
   user_type: MyString
-  band: two
-  musician: two

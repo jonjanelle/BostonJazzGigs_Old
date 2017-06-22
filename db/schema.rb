@@ -25,11 +25,13 @@ ActiveRecord::Schema.define(version: 20170621154556) do
     t.string "name", null: false
     t.string "genre", null: false
     t.text "description", null: false
-    t.string "email"
+    t.string "email", null: false
     t.text "url"
     t.binary "image"
     t.binary "songdemo1"
+    t.string "songdemo1_title"
     t.binary "songdemo2"
+    t.string "songdemo2_title"
     t.string "zipcode"
     t.integer "radius"
     t.datetime "created_at", null: false
@@ -46,7 +48,7 @@ ActiveRecord::Schema.define(version: 20170621154556) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_musicians_on_user_id", unique: true
+    t.index ["user_id"], name: "index_musicians_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

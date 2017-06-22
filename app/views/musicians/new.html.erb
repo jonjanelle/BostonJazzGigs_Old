@@ -1,10 +1,13 @@
-<div class="container-fluid nav-buffer">
+<% provide(:title, "Create Musician") %>
+<div class="container nav-buffer">
+  <p id="notice"><%= notice %></p>
   <a href="/" class="btn btn-default">
     <span class="glyphicon glyphicon-triangle-left"></span>
     back home
   </a>
   <div class="jumbotron hero-spacer text-center">
-    <h1>Create New Band</h1>
+    <h1>Create Musician Profile</h1>
+    <h3>Your musician profile will let people know who you are and what you do on your band page</h3>
   </div>
-  <%= render 'form', band: @band %>
+  <%= render 'form', musician: @musician %>
 </div>

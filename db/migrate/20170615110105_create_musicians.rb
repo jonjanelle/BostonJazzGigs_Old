@@ -8,7 +8,7 @@ class CreateMusicians < ActiveRecord::Migration[5.1]
       t.binary :image
       t.text :bio
       t.string :image
-      t.belongs_to :user, foreign_key: true, index: {unique: true}
+      t.belongs_to :user, foreign_key: true, index: true
       t.timestamps
     end
   end

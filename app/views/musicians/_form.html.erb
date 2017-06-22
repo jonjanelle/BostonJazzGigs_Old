@@ -1,56 +1,55 @@
-<%= form_with(model: @musician, local: true) do |form| %>
-<% if @musician.errors.any? %>
-<div class="alert alert-danger alert-dismissible fade in" role=alert>
-  <button type=button class=close data-dismiss=alert aria-label=Close>
-    <span aria-hidden=true>&times;</span>
-  </button>
-  <h2><%= pluralize(@musician.errors.count, "error") %>
-    prohibited this musician from being saved:</h2>
-  <ul>
-    <% @musician.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<div class="container">
+  <%= form_with(model: @musician, local: true) do |form| %>
+  <% if @musician.errors.any? %>
+  <div class="alert alert-danger alert-dismissible fade in" role=alert>
+    <button type=button class=close data-dismiss=alert aria-label=Close>
+      <span aria-hidden=true>&times;</span>
+    </button>
+    <h2>Warning: <%= pluralize(@musician.errors.count, "error") %>
+     stopped your changes from being saved:</h2>
+    <ul>
+      <% @musician.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
-<div class="field">
-  <%= form.label :firstname %><br>
-  <%= form.text_field :firstname, id: :musician_firstname %>
-</div>
+  <div class="field form-group">
+    <%= form.label :firstname, "First Name" %><br>
+    <%= form.text_field :firstname, id: :musician_first, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :lastname %><br>
-  <%= form.text_field :lastname, id: :musician_lastname %>
-</div>
+  <div class="field form-group">
+    <%= form.label :lastname, "Last Name" %><br>
+    <%= form.text_field :lastname, id: :musician_last, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :instrument %><br>
-  <%= form.text_field :instrument, id: :musician_instrument %>
-</div>
+  <div class="field form-group">
+    <%= form.label :instrument, "Primary Instrument" %><br>
+    <%= form.text_field :instrument, id: :musician_instrument, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :instrument2 %><br>
-  <%= form.text_field :instrument2, id: :musician_instrument2 %>
-</div>
+  <div class="field form-group">
+    <%= form.label :instrument2, "Secondary Instrument" %><br>
+    <%= form.text_field :instrument2, id: :musician_instrument2, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :email %><br>
-  <%= form.text_field :email, id: :musician_email %>
-</div>
+  <div class="field form-group">
+    <%= form.label :bio, "Profile Biography"%><br>
+    <%= form.text_area :bio, id: :musician_bio, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :image %><br>
-  <%= form.text_field :image, id: :musician_image %>
-</div>
+  <div class="field form-group">
+    <%= form.label :image, "Profile Photo (jpeg)" %><br>
+    <%= form.file_field :image, id: :musician_image, class: "form-control" %>
+  </div>
 
-<div class="field">
-  <%= form.label :bio %><br>
-  <%= form.text_field :bio, id: :musician_bio %>
+  <%= form.hidden_field :user_id, id: :musician_user_id, class:"form-control"  %>
+  <br>
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary btn-lg" %>
+  </div>
+  <% end %>
 </div>
-
-<br>
-<div class="actions">
-  <%= form.submit %>
-</div>
-<% end %>
+<br><br>
