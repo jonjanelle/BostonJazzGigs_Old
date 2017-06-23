@@ -14,44 +14,26 @@
   </head>
 
   <body id="page-top">
-    <nav id="mainNav" class="navbar navbar-plain navbar-fixed-top">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
-            <span class="sr-only">Toggle navigation</span>
-            Menu
-          </button>
-          <a class="navbar-brand page-scroll" href="/#page-top">Boston Jazz Gigs</a>
-        </div>
+    <%= render 'layouts/header' %>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a class="page-scroll" href="/#about">About</a>
-            </li>
-            <li>
-              <a class="page-scroll" href="/#featured">Featured</a>
-            </li>
-            <li>
-              <a class="page-scroll" href="/#contact">Contact</a>
-            </li>
-            <li>
-              <a class="page-scroll" href=<%= login_path %>>Login</a>
-            </li>
-          </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+    <!--Flash messaging-->
+    <% flash.each do |message_type, message| %>
+      <div class="container alert alert-<%= message_type %> alert-dismissible fade in header-margin-top" role=alert>
+        <button type=button class=close data-dismiss=alert aria-label=Close>
+          <span aria-hidden=true>&times;</span>
+        </button>
+        <%= message %>
       </div>
-      <!-- /.container-fluid -->
-    </nav>
+    <% end %>
 
     <%= yield %>
+
     <!-- development debug panel -->
     <div class="container alert top-margin-10">
       <%= debug(params) if Rails.env.development? %>
     </div>
+
+    <%= render 'layouts/footer' %>
 
     <!-- Plugin JavaScript -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
