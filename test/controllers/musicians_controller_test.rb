@@ -1,18 +1,22 @@
 require 'test_helper'
 
 class MusiciansControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get musicians_index_url
+  setup do
+    @musician = musicians(:one)
+  end
+
+  test "should get show" do
+    get musician_url(@musician)
     assert_response :success
   end
 
   test "should get new" do
-    get musicians_new_url
+    get new_musician_url
     assert_response :success
   end
 
   test "should get edit" do
-    get musicians_edit_url
+    get edit_musician_url(@musician)
     assert_response :success
   end
 

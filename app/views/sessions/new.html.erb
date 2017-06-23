@@ -1,0 +1,28 @@
+<% provide(:title, "Login") %>
+<div class="container nav-buffer">
+  <p id="notice"><%= notice %></p>
+  <a href="/" class="btn btn-default">
+    <span class="glyphicon glyphicon-triangle-left"></span>
+    back home
+  </a>
+  <div class="jumbotron hero-spacer text-center alert-success">
+    <h1>Login</h1>
+  </div>
+
+  <div class="container">
+    <%= form_for :session, url: login_path do |form| %>
+      <div class="field form-group">
+        <%= form.label :email, "E-mail Address" %><br>
+        <%= form.email_field :email, class: "form-control", placeholder: "Required. This address will not be publicly posted."%>
+      </div>
+      <div class="field form-group">
+        <%= form.label :password %><br>
+        <%= form.password_field :password, class: "form-control", placeholder: "Required. Must be at least 6 characters long." %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= form.submit class: "btn btn-primary btn-lg",  value: "Login" %>
+      </div>
+    <% end %>
+  </div>
+</div>

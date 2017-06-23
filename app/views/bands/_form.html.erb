@@ -25,7 +25,7 @@
   <div class="field form-group">
     <span class="glyphicon glyphicon-asterisk warning-asterisk" aria-hidden="true"></span>
     <%= form.label :email, "Band Email Address" %><br>
-    <%= form.text_field :email, id: :band_email, class: "form-control", placeholder: "A valid e-mail address is required." %>
+    <%= form.email_field :email, id: :band_email, class: "form-control", placeholder: "A valid e-mail address is required." %>
   </div>
 
   <div class="field form-group">
@@ -82,7 +82,7 @@
 
   <div class="field form-group">
     <%= form.label :radius, "How many miles from home are you willing to travel?" %><br>
-    <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", placeholder:0, data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance", placeholder: "Enter 0 if you're willing to
+    <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance", placeholder: "Enter 0 if you're willing to
     consider travelling any distance." %>
   </div>
   <br>

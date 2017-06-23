@@ -30,6 +30,14 @@ class UsersController < ApplicationController
 
   #PATCH/PUT users/1
   def update
+    respond_to do |format|
+    @band = Band.includes(:musicians).find(params[:id])
+      if @band.update(band_params)
+        format.html { redirect_to @band, notice: 'Band was successfully updated.' }
+      else
+        format.html {render :edit}
+      end
+    end
   end
 
   #GET users/1
@@ -38,6 +46,9 @@ class UsersController < ApplicationController
 
   #DELETE users/1
   def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    redirect_to home_path
   end
 
   private
