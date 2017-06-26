@@ -84,10 +84,12 @@ musician_data = [ {firstname: "Jeff", lastname: "Hughes", instrument: "Trumpet",
 
 #create one user accounts for each musician
 musician_data.length.times do |i|
-  User.create!(username: "user"+i.to_s,
-              email: "user"+i.to_s+"@test.com",
-              password: "password"+i.to_s,
-              user_type: "m")
+  User.create!( email: "user"+i.to_s+"@test.com",
+                firstname: musician_data[i][:firstname],
+               lastname: musician_data[i][:lastname],
+               password: "password",
+               password_confirmation: "password",
+               user_type: "m")
 end
 puts "#{User.count} User accounts created"
 

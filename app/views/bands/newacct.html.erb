@@ -5,8 +5,9 @@
     back home
   </a>
   <div class="jumbotron hero-spacer text-center alert-success">
-    <h1>Create New Account</h1>
+    <h1>Create Musician Account</h1>
     <h3>It only takes a few minutes to create your account, musician profile, and band page!</h3>
+    <p><%= link_to "Note: If you want to book a musician, then click here to register", new_user_path %></p>
   </div>
   <%= render 'users/form', band: @band, type: 'm' %>
 </div>

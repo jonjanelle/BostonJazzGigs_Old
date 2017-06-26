@@ -9,10 +9,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        flash.now[:success]='User account was successfully created.'
+        log_in(@user.id)
         if @user.user_type=='m'
-          format.html {redirect_to new_musician_path, notice: 'User account was successfully created.', uid: @user.id}
+          format.html {redirect_to new_musician_path, uid: @user.id}
         else
-          format.html { redirect_to @user, notice: 'User account was successfully created.' }
+          format.html { redirect_to @user }
         end
       else
         if @user.user_type=='m'
@@ -33,7 +35,8 @@ class UsersController < ApplicationController
     respond_to do |format|
     @band = Band.includes(:musicians).find(params[:id])
       if @band.update(band_params)
-        format.html { redirect_to @band, notice: 'Band was successfully updated.' }
+        flash.now[:success]='User was successfully updated.'
+        format.html { redirect_to @band }
       else
         format.html {render :edit}
       end
@@ -42,6 +45,14 @@ class UsersController < ApplicationController
 
   #GET users/1
   def show
+    @user = User.find(params[:id])
+    if (!session[:user_id].nil?) && @user.id == current_user.id
+      @user = User.find(params[:id])
+      return @user
+    else
+      flash[:danger]="You must login to view your user page."
+      redirect_to login_path
+    end
   end
 
   #DELETE users/1
@@ -54,6 +65,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation, :user_type)
+    params.require(:user).permit(:firstname, :lastname, :email, :password, :password_confirmation, :user_type)
   end
 end

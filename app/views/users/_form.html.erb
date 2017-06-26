@@ -16,13 +16,18 @@
   <% end %>
 
   <div class="field form-group">
-    <%= form.label :username, "Username" %><br>
-    <%= form.text_field :username, id: :user_name, class: "form-control", placeholder: "Required. Must be at least 3 characters long."%>
+    <%= form.label :firstname, "First Name" %><br>
+    <%= form.text_field :firstname, id: :first_name, class: "form-control", placeholder: "Required."%>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :lastname, "Last Name" %><br>
+    <%= form.text_field :lastname, id: :last_name, class: "form-control", placeholder: "Required."%>
   </div>
 
   <div class="field form-group">
     <%= form.label :email, "E-mail Address" %><br>
-    <%= form.email_field :email, id: :user_email, class: "form-control", placeholder: "Required. This address will not be publicly posted."%>
+    <%= form.email_field :email, id: :user_email, class: "form-control", placeholder: "Required. Your e-mail is your account username."%>
   </div>
 
   <div class="field form-group">
@@ -35,11 +40,11 @@
     <%= form.password_field :password_confirmation, id: :user_password_confirmation, class: "form-control", placeholder: "Required. Must exactly match password." %>
   </div>
 
-  <%= form.hidden_field :user_type, id: :user_type, class:"form-control"  %>
+  <%= form.hidden_field :user_type, value: type, id: :user_type, class:"form-control"  %>
+
+  <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
   <br>
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary btn-lg" %>
-  </div>
+  <p>Already registered? <%= link_to "Login to your account", login_path %></p>
   <% end %>
 </div>
 <br><br>

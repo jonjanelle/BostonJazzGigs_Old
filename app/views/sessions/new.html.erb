@@ -1,6 +1,5 @@
 <% provide(:title, "Login") %>
 <div class="container nav-buffer">
-  <p id="notice"><%= notice %></p>
   <a href="/" class="btn btn-default">
     <span class="glyphicon glyphicon-triangle-left"></span>
     back home
@@ -13,16 +12,19 @@
     <%= form_for :session, url: login_path do |form| %>
       <div class="field form-group">
         <%= form.label :email, "E-mail Address" %><br>
-        <%= form.email_field :email, class: "form-control", placeholder: "Required. This address will not be publicly posted."%>
+        <%= form.email_field :email, class: "form-control" %>
       </div>
       <div class="field form-group">
         <%= form.label :password %><br>
-        <%= form.password_field :password, class: "form-control", placeholder: "Required. Must be at least 6 characters long." %>
+        <%= form.password_field :password, class: "form-control" %>
       </div>
+      <%= form.submit class: "btn btn-primary btn-lg btn-block",  value: "Login" %>
       <br>
-      <div class="actions">
-        <%= form.submit class: "btn btn-primary btn-lg",  value: "Login" %>
-      </div>
+      <p>New user? <%= link_to "Create a musician/band account", bands_newacct_path %> or
+        <%= link_to "Create a standard account", new_user_path %>
+      </p>
+
     <% end %>
+
   </div>
 </div>

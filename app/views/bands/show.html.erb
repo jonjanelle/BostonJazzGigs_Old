@@ -1,7 +1,6 @@
 <% provide(:title, @band.name) %>
 <!-- Page Content -->
 <div class="container-fluid nav-buffer">
-  <p id="notice"><%= notice %></p>
   <a href="/bands" class="btn btn-default">
     <span class="glyphicon glyphicon-triangle-left"></span>
     back to browsing
@@ -9,17 +8,22 @@
   <!-- Jumbotron Header -->
   <div class="jumbotron hero-spacer text-center">
     <h1><%= @band.name %></h1>
-    <h3>Genre:
-      <%= @band.genre %></h3>
+    <h3>Genre: <%= @band.genre %></h3>
 
-    <div class="row">
-      <div class="col col-md-12 top-margin-10">
-        <a href="#" class="btn btn-primary">Contact Band Now</a>
+    <% if session[:user_id].nil? %>
+      <p><a href=<%= login_path %>>Login to contact this band!</a></p>
+    <% else %>
+      <div class="row">
+        <div class="col col-md-12 top-margin-10">
+          <a href="#" class="btn btn-primary">Contact Band Now</a>
+        </div>
+        <% if current_user.user_type=='m' && @band.in_band(current_user.musician.id) %>
+          <div class="col col-md-12 top-margin-10">
+            <%= link_to 'Edit Band Profile', edit_band_path(@band), class: "btn btn-info" %>
+          </div>
+        <% end %>
       </div>
-      <div class="col col-md-12 top-margin-10">
-        <%= link_to 'Edit Band Profile', edit_band_path(@band), class: "btn btn-info" %>
-      </div>
-    </div>
+    <% end %>
   </div>
   <hr>
 

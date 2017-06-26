@@ -85,10 +85,9 @@
     <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance", placeholder: "Enter 0 if you're willing to
     consider travelling any distance." %>
   </div>
+
+  <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
   <br>
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary btn-lg" %>
-  </div>
   <% end %>
 </div>
 <br><br>

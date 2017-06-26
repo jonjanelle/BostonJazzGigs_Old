@@ -1,7 +1,6 @@
 <% provide(:title, @musician.firstname + " " + @musician.lastname) %>
 <!-- Page Content -->
 <div class="container-fluid nav-buffer">
-  <p id="notice"><%= notice %></p>
   <a href="/bands" class="btn btn-default">
     <span class="glyphicon glyphicon-triangle-left"></span>
     back to browsing
@@ -9,31 +8,62 @@
   <!-- Jumbotron Header -->
   <div class="jumbotron hero-spacer text-center">
     <h1><%= @musician.firstname + " " + @musician.lastname %></h1>
-    <h3>Instrument:
-      <%= @musician.instrument %></h3>
-    <p><%= @musician.bio %></p>
+    <h3>Primary Instrument: <%= @musician.instrument %></h3>
+    <% if !@musician.instrument2.nil? %>
+      <h3>Secondary Instrument: <%= @musician.instrument2 %></h3>
+    <% end %>
     <p>
-      <a href="#" class="btn btn-primary">Contact Musician Now</a>
-      <%= link_to 'Edit Musician Info', edit_musician_path(@musician), class: "btn btn-info" %>
+      <% if session[:user_id].nil? %>
+        <a href=<%= login_path %>>Login to contact this musician!</a>
+      <% else %>
+        <a href="#" class="btn btn-primary">Contact Musician Now</a>
+        <% if current_user.id == @musician.user.id %>
+          <%= link_to 'Edit Musician Info', edit_musician_path(@musician), class: "btn btn-info" %>
+        <% end %>
+      <% end %>
     </p>
   </div>
 
   <hr>
 
+  <!-- Description, song demos, and image -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col col-md-12">
+        <h2 class="page-header">Musician Info</h2>
+      </div>
+
+      <div class="col col-md-6 text-center">
+        <div class="row">
+          <div class="col col-md-12">
+            <h3 class="page-header">Bio</h3>
+          </div>
+          <div class="col col-md-12">
+            <%= @musician.bio %>
+          </div>
+        </div>
+      </div>
+      <div class="col col-md-6 top-margin-10">
+        <img class="img-responsive img-rounded" src="http://lorempixel.com/800/400/" alt="">
+      </div>
+    </div>  <!-- /.row -->
+  </div>
+
+
   <!-- Title -->
   <div class="row">
     <div class="col-lg-12">
-      <h3>Associated Bands</h3>
+      <h3 class="page-header">Associated Bands</h3>
     </div>
   </div>
   <!-- /.row -->
 
-  <!-- Page Features -->
+  <!-- List musician's bands -->
   <div class="row text-center">
     <% @musician.bands.each do |band| %>
-    <div class="col-md-3 col-sm-6 hero-feature">
+    <div class="col-md-3 col-sm-4 col-xs-6 hero-feature">
       <div class="thumbnail">
-        <img src="http://placehold.it/800x500" alt="">
+        <img src="http://lorempixel.com/400/250/" alt="">
         <div class="caption">
           <h3><%= band.name %></h3>
           <p>
@@ -43,6 +73,6 @@
       </div>
     </div>
     <% end %>
-  </div>
-  <!-- /.row -->
+  </div>  <!-- /.row -->
+
 </div>

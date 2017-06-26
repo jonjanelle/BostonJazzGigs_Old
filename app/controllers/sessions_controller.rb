@@ -5,12 +5,17 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(:email => params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
+      log_in user #sessions_helper
       redirect_to user
+    else
+      flash.now[:danger]='Invalid email/password combination'
+      render 'new'
     end
-    flash[:danger]='Invalid email/password combination'
-    render 'new'
+
   end
 
   def destroy
+    log_out
+    redirect_to root_url
   end
 end

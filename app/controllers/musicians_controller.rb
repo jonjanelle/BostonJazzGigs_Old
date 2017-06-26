@@ -10,7 +10,8 @@ class MusiciansController < ApplicationController
     @musician = Musician.new(musician_params)
     respond_to do |format|
       if @musician.save
-        format.html { redirect_to @musician, notice: 'Musician profile created. You can now create a band or be added to the roster of an existing band!' }
+        flash.now[:success]='Musician profile created. You can now create a band or be added to the roster of an existing band!'
+        format.html { redirect_to @musician }
       else
         format.html { render :new }
       end
@@ -27,7 +28,8 @@ class MusiciansController < ApplicationController
     respond_to do |format|
     @musician = Musician.includes(:bands).find(params[:id])
       if @musician.update(musician_params)
-        format.html { redirect_to @musician, notice: 'Musician profile successfully updated.' }
+        flash.now[:success]='Musician profile successfully updated.'
+        format.html { redirect_to @musician }
       else
         format.html {render :edit}
       end

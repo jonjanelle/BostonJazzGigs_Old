@@ -26,7 +26,8 @@ class BandsController < ApplicationController
     @band = Band.new(band_params)
     respond_to do |format|
       if @band.save
-        format.html { redirect_to @band, notice: 'Band was successfully created.' }
+        flash.now[:success]='Band was successfully created.'
+        format.html { redirect_to @band }
       else
         format.html { render :new }
       end
@@ -43,7 +44,8 @@ class BandsController < ApplicationController
     respond_to do |format|
     @band = Band.includes(:musicians).find(params[:id])
       if @band.update(band_params)
-        format.html { redirect_to @band, notice: 'Band was successfully updated.' }
+        flash.now[:success] = 'Band was successfully updated.'
+        format.html { redirect_to @band }
       else
         format.html {render :edit}
       end
@@ -53,6 +55,7 @@ class BandsController < ApplicationController
   # DELETE /bands/1
   def destroy
     @band = Band.find(params[:id])
+    flash.now[:sucess]="#{@band.name} was deleted."
     @band.destroy
     redirect_to bands_path
   end
