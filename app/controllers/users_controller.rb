@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         flash.now[:success]='User account was successfully created.'
-        log_in(@user.id)
+        log_in(@user)
         if @user.user_type=='m'
           format.html {redirect_to new_musician_path, uid: @user.id}
         else
@@ -28,15 +28,16 @@ class UsersController < ApplicationController
 
   #GET users/edit
   def edit
+    @user = User.find(params[:id])
   end
 
   #PATCH/PUT users/1
   def update
     respond_to do |format|
-    @band = Band.includes(:musicians).find(params[:id])
-      if @band.update(band_params)
-        flash.now[:success]='User was successfully updated.'
-        format.html { redirect_to @band }
+    @user = User.find(params[:id])
+      if @user.update(user_params)
+        flash[:success]='User was successfully updated.'
+        format.html { redirect_to @user }
       else
         format.html {render :edit}
       end
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       return @user
     else
-      flash[:danger]="You must login to view your user page."
+      flash[:danger]="You are either not logged in or you do not own the requested account."
       redirect_to login_path
     end
   end

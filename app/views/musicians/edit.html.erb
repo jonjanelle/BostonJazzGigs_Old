@@ -1,11 +1,11 @@
 <% provide(:title, "Edit " + @musician.firstname) %>
 <!-- Page Content -->
-<div class="container-fluid nav-buffer">
+<div class="container nav-buffer">
   <a href="<%= musicians_path %>/<%= @musician.id %>" class="btn btn-default">
     <span class="glyphicon glyphicon-triangle-left"></span>
     back to musician page
   </a>
-  <div class="jumbotron hero-spacer text-center">
+  <div class="jumbotron hero-spacer text-center alert-info">
     <h1>Edit Musician Profile</h1>
   </div>
   <%= render 'form', musician: @musician %>

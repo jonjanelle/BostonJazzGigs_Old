@@ -25,8 +25,9 @@ class BandsController < ApplicationController
   def create
     @band = Band.new(band_params)
     respond_to do |format|
-      if @band.save
-        flash.now[:success]='Band was successfully created.'
+      if logged_in? && current_user.user_type=='m' && @band.save
+        @band.band_musicians.create!(musician_id: current_user.musician.id)
+        flash[:success]='Band was successfully created.'
         format.html { redirect_to @band }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class BandsController < ApplicationController
     respond_to do |format|
     @band = Band.includes(:musicians).find(params[:id])
       if @band.update(band_params)
-        flash.now[:success] = 'Band was successfully updated.'
+        flash[:success] = 'Band was successfully updated.'
         format.html { redirect_to @band }
       else
         format.html {render :edit}

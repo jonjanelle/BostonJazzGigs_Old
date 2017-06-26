@@ -32,19 +32,19 @@
 
   <div class="field form-group">
     <%= form.label :password %><br>
-    <%= form.password_field :password, id: :user_password, class: "form-control", placeholder: "Required. Must be at least 6 characters long." %>
+    <%= form.password_field :password, value: @user.password_digest, id: :user_password, class: "form-control", placeholder: "Required. Must be at least 6 characters long." %>
   </div>
 
   <div class="field form-group">
     <%= form.label :password_confirmation, "Password confirmation" %><br>
-    <%= form.password_field :password_confirmation, id: :user_password_confirmation, class: "form-control", placeholder: "Required. Must exactly match password." %>
+    <%= form.password_field :password_confirmation, value: @user.password_digest, id: :user_password_confirmation, class: "form-control", placeholder: "Required. Must exactly match password." %>
   </div>
-
-  <%= form.hidden_field :user_type, value: type, id: :user_type, class:"form-control"  %>
-
+  <% if logged_in? %>
+    <%= form.hidden_field :user_type, value: @user.user_type, id: :user_type, class:"form-control"  %>
+  <% else %>
+    <%= form.hidden_field :user_type, value: type, id: :user_type, class:"form-control"  %>
+  <% end %>
   <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
-  <br>
-  <p>Already registered? <%= link_to "Login to your account", login_path %></p>
   <% end %>
 </div>
 <br><br>

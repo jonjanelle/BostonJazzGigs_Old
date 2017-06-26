@@ -5,7 +5,17 @@
     back home
   </a>
   <div class="jumbotron hero-spacer text-center alert-success">
-    <h1>Create New Account</h1>
+    <h1>Create New Band Profile</h1>
   </div>
-  <%= render 'form', band: @band %>
+  <% if logged_in? && current_user.user_type=="m" %>
+    <%= render 'form', band: @band, musician: current_user.musician %>
+  <% else %>
+    <h2 class="text-center">
+      <span class="glyphicon glyphicon-lock"></span>
+      You must be logged in to a musician account to create a new band
+    </h2>
+    <h3 class=text-center>
+      <%= link_to "Login now", login_path %> or <%= link_to "Create a musician account", bands_newacct_path %>
+    </h3>
+  <% end %>
 </div>

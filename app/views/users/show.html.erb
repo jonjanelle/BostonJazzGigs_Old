@@ -3,27 +3,27 @@
 <div class="container-fluid nav-buffer">
   <a href="/bands" class="btn btn-default">
     <span class="glyphicon glyphicon-triangle-left"></span>
-    back to browsing
+    Browse all bands
   </a>
   <!-- Jumbotron Header -->
   <div class="jumbotron hero-spacer text-center">
     <h1>Welcome <%= @user.firstname %>!</h1>
-    <h3>Member since: <%= @user.created_at %></h3>
+    <h3>Member since: <%= @user.created_at.to_s.split[0] %></h3>
     <p>
-      <%= link_to 'Edit User Info', edit_user_path(@user), class: "btn btn-info" %>
+      <%= link_to 'User Account Settings', edit_user_path(@user), class: "btn btn-info" %>
     </p>
   </div>
   <hr>
 
   <% if @user.user_type == 'm' %>
+    <h3 class="page-header">Musician Account Actions</h3>
     <div class="row">
-      <div class="col-lg-12">
-        <h3>Musician Profile</h3>
-      </div>
-
-      <div class="col col-lg-12">
-        <h3>Bands</h3>
+      <div class="col col-md-12 top-margin-10">
+        <%= link_to 'View Musician Profile', musician_path(@user.musician), class: "btn btn-primary btn-lg btn-sq" %>
+        <%= link_to 'Create New Band', new_band_path, class: "btn btn-primary btn-lg btn-sq" %>
       </div>
     </div>
+    <%= render 'musicians/bandlist', musician: current_user.musician %>
   <% end %>
+
 </div>

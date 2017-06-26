@@ -93,9 +93,11 @@ musician_data.length.times do |i|
 end
 puts "#{User.count} User accounts created"
 
+mbio = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel diam pharetra, semper est ac, volutpat odio. Praesent dictum nunc augue. Phasellus suscipit tellus magna, quis vehicula sem maximus id. Integer volutpat ligula vel turpis euismod luctus. Duis hendrerit a eros quis maximus. Nunc ut vestibulum ante. Aenean aliquam mattis risus quis fringilla. Phasellus faucibus est ante, sit amet ornare purus dignissim a. Duis eu feugiat risus. Morbi fringilla a metus in congue."
+
 musician_data.each_with_index do |data, index|
   Musician.create!(firstname: data[:firstname], lastname: data[:lastname],
-                  instrument: data[:instrument], bio: data[:bio],
+                  instrument: data[:instrument], bio: mbio,
                   user_id: index+1)
 end
 puts "#{Musician.count} Musician entries created"

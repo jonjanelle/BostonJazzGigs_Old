@@ -10,4 +10,6 @@
     <p><%= link_to "Note: If you want to book a musician, then click here to register", new_user_path %></p>
   </div>
   <%= render 'users/form', band: @band, type: 'm' %>
+  <br>
+  <p>Already registered? <%= link_to "Login to your account", login_path %></p>
 </div>
