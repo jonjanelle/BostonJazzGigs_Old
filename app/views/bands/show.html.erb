@@ -28,7 +28,10 @@
       <div class="col col-md-12">
         <h2 class="page-header">Band Info
           <% if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.musician.id) %>
-            <%= link_to 'Edit Band Profile', edit_band_path(@band), class: "btn btn-info" %>
+            <%= link_to(edit_band_path(@band), html_options={class: "btn btn-info"}) do %>
+              <span class="glyphicon glyphicon-pencil"></span>
+              Edit Band Profile
+            <% end %>
           <% end %>
         </h2>
       </div>
@@ -36,16 +39,22 @@
       <div class="col col-md-6 text-center">
         <div class="row">
           <div class="col col-md-12">
-            <h3 class="page-header">Description</h3>
+            <h3 class="page-header">
+               Description &nbsp
+               <span class="glyphicon glyphicon-list-alt"></span>
+            </h3>
           </div>
           <div class="col col-md-12">
             <%= @band.description %>
           </div>
           <div class="col col-md-12 top-margin-10">
-            <h3 class="page-header">Demo Songs</h3>
+            <h3 class="page-header">
+              Demo Songs &nbsp
+              <span class="glyphicon glyphicon-headphones"></span>
+            </h3>
           </div>
 
-          <% if @band.songdemo1!=nil %>
+          <% if @band.songdemo1? %>
           <div class="col col-md-6">
             <div class="band-tile-subheading"><%= @band.songdemo1_title.blank? ? 'Untitled':@band.songdemo1_title %> </div>
             <audio controls>
@@ -59,7 +68,7 @@
             </div>
           <% end %>
 
-          <% if @band.songdemo2!=nil %>
+          <% if @band.songdemo2? %>
           <div class="col col-md-6">
             <div class="band-tile-subheading"><%= @band.songdemo2_title.blank? ? 'Untitled':@band.songdemo2_title %> </div>
             <audio controls>
@@ -70,8 +79,12 @@
           <% end %>
         </div>
       </div>
-      <div class="col col-md-6 top-margin-10">
-        <img class="img-responsive img-rounded" src="http://lorempixel.com/800/400/" alt="">
+      <div class="col col-md-6 top-margin-10 band-pic">
+        <% if @band.image? %>
+          <%= image_tag @band.image, class: "img-responsive img-rounded" %>
+        <% else %>
+          <img class="img-responsive img-rounded" src="http://lorempixel.com/800/400/" alt="">
+        <% end %>
       </div>
     </div>
   </div>
@@ -81,9 +94,10 @@
   <div class="row">
     <div class="col-lg-12">
       <h3 class="page-header">Band Members
-        <% if logged_in? %>
-          <% if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.musician.id) %>
-            <%= link_to 'Add Musician to Band', edit_band_path(@band), class: "btn btn-success" %>
+        <% if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.musician.id) %>
+          <%= link_to(edit_band_path(@band), html_options = {class: "btn btn-success"}) do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            Add Musician
           <% end %>
         <% end %>
       </h3>

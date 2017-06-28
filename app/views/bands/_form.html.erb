@@ -1,5 +1,5 @@
 <div class="container">
-  <%= form_with(model: @band, local: true) do |form| %>
+  <%= form_with(model: @band, local: true, html: { multipart: true }) do |form| %>
   <% if @band.errors.any? %>
   <div class="alert alert-danger alert-dismissible fade in" role=alert>
     <button type=button class=close data-dismiss=alert aria-label=Close>
@@ -41,8 +41,13 @@
   </div>
 
   <div class="field form-group">
-    <%= form.label :image, "Profile Photo (jpeg)" %><br>
-    <%= form.file_field :image, id: :band_image, class: "form-control" %>
+    <%= form.label :image, "Profile Photo (jpeg)" %>
+    <% if @band.image %>
+     : <%= @band.image_file_name %>
+    <% else %>
+      No image file selected.
+    <% end %>
+    <%= form.file_field :image, id: :band_image, class: "form-control", accept: 'image/png,image/gif,image/jpeg' %>
   </div>
 
   <div class="row">
@@ -54,7 +59,15 @@
     </div>
     <div class="col col-md-8 col-xs-6">
       <div class="field form-group">
-        <%= form.label :songdemo1, "Song Demo 1 File (mp3 or wav)" %><br>
+
+        <%= form.label :songdemo1, "Song Demo 1 File (mp3 or wav)" %>
+        :
+        <% if @band.songdemo1? %>
+          <%= @band.songdemo1_file_name %>
+          <div id="delete_song1"><span onclick="deleteSong()" class="glyphicon glyphicon-trash"></span></div>
+        <% else %>
+            No song selected
+        <% end %>
         <%= form.file_field :songdemo1, id: :band_songdemo1, class: "form-control" %>
       </div>
     </div>
@@ -69,8 +82,14 @@
     </div>
     <div class="col col-md-8 col-xs-6">
       <div class="field form-group">
-        <%= form.label :songdemo2, "Song Demo 2 File (mp3 or wav)" %><br>
-        <%= form.file_field :songdemo2, id: :band_songdemo2, class: "form-control" %>
+        <%= form.label :songdemo2, "Song Demo 2 File (mp3 or wav)" %>
+        :
+        <% if @band.songdemo2? %>
+          <%= @band.songdemo2_file_name %>
+        <% else %>
+            No song selected
+        <% end %>
+        <%= form.file_field :songdemo2, id: :band_songdemo2, class: "form-control", value: "test" %>
       </div>
     </div>
   </div>

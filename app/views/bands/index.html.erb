@@ -20,10 +20,14 @@
         </div>
         <div class="row padded-10">
           <div class="col col-md-6 col-xs-12">
-            <img class="img-responsive" src="http://lorempixel.com/400/200/" alt="">
+            <% if band.image? %>
+              <%= image_tag band.image, class: "img-responsive img-rounded band-pic-sm" %>
+            <% else %>
+              <img class="img-responsive img-rounded band-pic-sm" src="http://lorempixel.com/400/200/" alt="">
+            <% end %>
           </div>
 
-          <div class="col col-md-6 col-xs-12">
+            v<div class="col col-md-6 col-xs-12">
             <div class="band-tile-subheading">Audio Samples</div>
             <% if band.songdemo1!=nil %>
               <audio controls>
@@ -34,7 +38,6 @@
               Sorry, no samples are available for this artist!
             <% end %>
           </div>
-
         </div>
 
         <!--end row-->
