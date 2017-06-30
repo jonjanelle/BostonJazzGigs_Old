@@ -95,15 +95,21 @@
   </div>
 
   <div class="field form-group">
+    <%= form.label :url, "Band Website" %><br>
+    <%= form.text_field :url, id: :band_url, class: "form-control", placeholder: "http://www.YourBandWebsite.com"  %>
+  </div>
+
+  <div class="field form-group">
     <%= form.label :zipcode, "Band Home Zip Code" %><br>
     <%= form.text_field :zipcode, id: :band_zipcode, class: "form-control", placeholder: "Used to recommend gigs within your travel radius."  %>
   </div>
 
   <div class="field form-group">
     <%= form.label :radius, "How many miles from home are you willing to travel?" %><br>
-    <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance", placeholder: "Enter 0 if you're willing to
-    consider travelling any distance." %>
+    <%= form.number_field :radius, id: :band_radius, in: 0..1000, class: "form-control", data: { toggle: "tooltip", placement: "left"}, title: "0 if you're willing to consider any distance", placeholder: "Enter 0 if you're willing to consider travelling any distance." %>
   </div>
+
+  <%= form.hidden_field :musician_id, value: current_user.musician.id, id: :musician_id, class:"form-control"  %>
 
   <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
   <br>

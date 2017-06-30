@@ -1,0 +1,48 @@
+<% provide(:title, "Add musician to "+@band.name) %>
+<div class="container nav-buffer">
+  <% if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.musician.id) %>
+  <a href="<%= band_path(@band.id) %>" class="btn btn-default">
+    <span class="glyphicon glyphicon-triangle-left"></span>
+    back to band page
+  </a>
+  <div class="jumbotron hero-spacer text-center alert-info">
+    <h1>Add Musician to Band</h1>
+  </div>
+  <h2>Search for Musician</h2>
+  <div>
+    <input type="text" id="musician_lastname" placeholder="Enter last name">
+    <button onclick="findMusician(false)" class="btn btn-primary" value="Search">Search</button>
+    <br>
+    <p class="top-margin-10">
+      Unsure about the name?
+      <button onclick="findMusician(true)" class="btn btn-primary" value="View All">View All Musicians</button>
+    </p>
+
+  </div>
+  <h2>
+    Search Results: Select a Musician
+  </h2>
+  <div class="table-responsive table-medium">
+    <table class="table table-striped musician-search-table table-bordered" id="musician-table">
+      <thead>
+        <tr title="Click column title to sort">
+          <th style="display:none;">ID</th>
+          <th onclick="sortTable(1)">Lastname</th>
+          <th onclick="sortTable(2)">Firstname</th>
+          <th onclick="sortTable(3)">Instrument</th>
+        </tr>
+      </thead>
+      <tbody id="musician_search_results">
+        <tr><td>Use the search tool above to find musicians</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add musician confirmation modal -->
+  <%= render 'add_musician_modal', band: @band %>
+
+
+<% else %>
+  <h2>You are not authorized to edit the requested band profile.</h2>
+  <% end %>
+</div>

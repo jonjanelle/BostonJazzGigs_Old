@@ -61,6 +61,30 @@ class BandsController < ApplicationController
     redirect_to bands_path
   end
 
+  #GET /bands/1/addmusician
+  def add_musician
+    @band = Band.find(params[:id])
+  end
+
+  #POST /bands/1/addmusician
+  def create_musician
+    @band = Band.find(params[:band_id])
+    respond_to do |format|
+      if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.id)
+        if @band.in_band(params[:musician_id].to_i)
+          flash[:danger]='The selected musician is already in the band!'
+        else
+          @band.band_musicians.create!(musician_id: params[:musician_id])
+          flash[:success]='Musician successfully added!'
+        end
+        format.html { redirect_to @band }
+      else
+        flash[:danger]='An unknown error occurred while adding a musician.'
+        format.html { redirect_to @band }
+      end
+    end
+  end
+
   private
   # Never trust parameters from the scary internet, only allow the white list through.
   def band_params

@@ -1,12 +1,16 @@
 <% provide(:title, "Edit "+@band.name) %>
-<!-- Page Content -->
 <div class="container nav-buffer">
-  <a href="/bands/<%= @band.id %>" class="btn btn-default">
-    <span class="glyphicon glyphicon-triangle-left"></span>
-    back to band page
-  </a>
-  <div class="jumbotron hero-spacer text-center alert-info">
-    <h1>Edit Band Profile</h1>
-  </div>
-  <%= render 'form', band: @band %>
+  <% if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.musician.id) %>
+    <a href="/bands/<%= @band.id %>" class="btn btn-default">
+      <span class="glyphicon glyphicon-triangle-left"></span>
+      back to band page
+    </a>
+    <div class="jumbotron hero-spacer text-center alert-info">
+      <h1>Edit Band Profile</h1>
+    </div>
+    <%= render 'form', band: @band %>
+
+  <% else %>
+    <h2>You are not authorized to edit this band profile.</h2>
+  <% end %>
 </div>

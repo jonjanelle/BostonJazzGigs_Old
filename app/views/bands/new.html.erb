@@ -1,21 +1,26 @@
 <% provide(:title, "Create Band Profile") %>
 <div class="container nav-buffer">
-  <a href="/" class="btn btn-default">
-    <span class="glyphicon glyphicon-triangle-left"></span>
-    back home
-  </a>
-  <div class="jumbotron hero-spacer text-center alert-success">
-    <h1>Create New Band Profile</h1>
-  </div>
-  <% if logged_in? && current_user.user_type=="m" %>
-    <%= render 'form', band: @band, musician: current_user.musician %>
+  <% if logged_in? && current_user.user_type=='m' %>
+      <a href="/" class="btn btn-default">
+        <span class="glyphicon glyphicon-triangle-left"></span>
+        back home
+      </a>
+      <div class="jumbotron hero-spacer text-center alert-success">
+        <h1>Create New Band Profile</h1>
+      </div>
+      <% if logged_in? && current_user.user_type=="m" %>
+        <%= render 'form', band: @band, musician: current_user.musician %>
+      <% else %>
+        <h2 class="text-center">
+          <span class="glyphicon glyphicon-lock"></span>
+          You must be logged in to a musician account to create a new band
+        </h2>
+        <h3 class=text-center>
+          <%= link_to "Login now", login_path %> or <%= link_to "Create a musician account", bands_newacct_path %>
+        </h3>
+      <% end %>
+
   <% else %>
-    <h2 class="text-center">
-      <span class="glyphicon glyphicon-lock"></span>
-      You must be logged in to a musician account to create a new band
-    </h2>
-    <h3 class=text-center>
-      <%= link_to "Login now", login_path %> or <%= link_to "Create a musician account", bands_newacct_path %>
-    </h3>
+    <h2>You must be logged in to a musician account to create a band.</h2>
   <% end %>
 </div>

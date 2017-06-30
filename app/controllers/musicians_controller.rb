@@ -36,6 +36,18 @@ class MusiciansController < ApplicationController
     end
   end
 
+
+  #POST /musicians/search
+  def search()
+    if params[:lastname]!='show_all'
+      @musicians = Musician.where(lastname: params[:lastname])
+    else
+      @musicians = Musician.all
+    end
+    render json: @musicians
+  end
+
+
   # GET /musicians/1
   def show
     @musician = Musician.includes(:bands).find(params[:id])

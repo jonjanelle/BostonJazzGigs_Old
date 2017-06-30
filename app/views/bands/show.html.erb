@@ -95,7 +95,7 @@
     <div class="col-lg-12">
       <h3 class="page-header">Band Members
         <% if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.musician.id) %>
-          <%= link_to(edit_band_path(@band), html_options = {class: "btn btn-success"}) do %>
+          <%= link_to(band_add_musician_path(@band), html_options = {class: "btn btn-success"}) do %>
             <span class="glyphicon glyphicon-plus"></span>
             Add Musician
           <% end %>

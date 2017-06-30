@@ -1,0 +1,24 @@
+<div id="addModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header alert-info">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title text-center">Add musician to band?</h3>
+      </div>
+      <div class="modal-body text-center">
+        <span style="display:none" id="modal-musician-id"></span>
+        <span style="display:none" id="modal-band-id"><%= @band.id %></span>
+        <p>Add <span id="modal-musician-name"></span> to <%= @band.name %>?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success top-margin-10" onclick="createBandMusician()">
+          <span class="glyphicon glyphicon-plus"></span>
+          Add Musician
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+</div>

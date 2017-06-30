@@ -26,17 +26,28 @@
               <img class="img-responsive img-rounded band-pic-sm" src="http://lorempixel.com/400/200/" alt="">
             <% end %>
           </div>
-
-            v<div class="col col-md-6 col-xs-12">
-            <div class="band-tile-subheading">Audio Samples</div>
-            <% if band.songdemo1!=nil %>
-              <audio controls>
-                <source src="<%= band.songdemo1 %>" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
-            <% else %>
-              Sorry, no samples are available for this artist!
-            <% end %>
+          <div class="col col-md-6 col-xs-12">
+            <div class="row">
+              <div class="col col-md-12">
+                <div class="band-tile-subheading">Audio Samples</div>
+                <% if band.songdemo1? %>
+                  <audio controls>
+                    <source src="<%= band.songdemo1 %>" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                <% else %>
+                  Sorry, no samples are available for this artist!
+                <% end %>
+              </div>
+              <div class="col col-md-12">
+                <% if band.songdemo2? %>
+                  <audio controls>
+                    <source src="<%= band.songdemo2 %>" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
 

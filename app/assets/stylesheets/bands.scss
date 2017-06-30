@@ -50,3 +50,36 @@
   height: 200px;
   width: auto;
 }
+
+.musician-search-table
+{
+  text-align: center;
+  thead {
+    tr{
+      th{
+        &:hover {
+          cursor: pointer;
+          color: blue;
+        }
+        text-align: center;
+      }
+    }
+  }
+
+  tbody {
+    tr {
+      &:hover {
+        background-color: #dff0d8;
+        cursor: pointer;
+      }
+      &:selected {
+        background-color: #dff0d8;
+      }
+    }
+  }
+}
+.table-medium {
+  max-height: 30vh;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+}
