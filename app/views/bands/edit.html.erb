@@ -11,6 +11,9 @@
     <%= render 'form', band: @band %>
 
   <% else %>
-    <h2>You are not authorized to edit this band profile.</h2>
+    <h2 class="text-center">You are not authorized to edit this band profile.</h2>
+    <p class="text-center">
+      <%= link_to "If you are a member of this band, then login now to edit", login_path %>
+    </p>
   <% end %>
 </div>

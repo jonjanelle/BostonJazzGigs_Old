@@ -7,4 +7,16 @@ module ApplicationHelper
       return page_title + " | " + base
     end
   end
+
+  #limit the string to maxLen characters.
+  #Entire string displayed if it contains fewer
+  #or equal to maxLen characters.
+  def limitTextLen(str, maxLen)
+    if str.length <= maxLen
+      return str
+    else
+      return str[0, maxLen]+"..."
+    end
+  end
+
 end

@@ -33,7 +33,9 @@
         </tr>
       </thead>
       <tbody id="musician_search_results">
-        <tr><td>Use the search tool above to find musicians</td></tr>
+        <tr>
+          <td>Use the search tool above to find musicians</td>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -41,8 +43,10 @@
   <!-- Add musician confirmation modal -->
   <%= render 'add_musician_modal', band: @band %>
 
-
-<% else %>
-  <h2>You are not authorized to edit the requested band profile.</h2>
+  <% else %>
+    <h2 class="text-center">You are not authorized to edit this band profile.</h2>
+    <p class="text-center">
+      <%= link_to "If you are a member of this band, then login now to edit", login_path %>
+    </p>
   <% end %>
 </div>

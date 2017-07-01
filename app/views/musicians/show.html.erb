@@ -5,7 +5,6 @@
     <span class="glyphicon glyphicon-triangle-left"></span>
     Browse all bands
   </a>
-  <!-- Jumbotron Header -->
   <div class="jumbotron hero-spacer text-center">
     <h1><%= @musician.firstname + " " + @musician.lastname %></h1>
     <h3>Primary Instrument: <%= @musician.instrument %></h3>
@@ -16,7 +15,6 @@
       <p><%= link_to 'Edit Musician Profile', edit_musician_path(@musician), class: "btn btn-primary" %>
     <%= link_to 'Go to user account page', user_path(current_user), class: "btn btn-info" %></p>
     <% end %>
-
     <!--
     <p>
       <% if session[:user_id].nil? %>
@@ -30,16 +28,13 @@
     </p>
   -->
   </div>
-
   <hr>
-
   <!-- Description, song demos, and image -->
   <div class="container-fluid">
     <div class="row">
       <div class="col col-md-12">
         <h2 class="page-header">Musician Info</h2>
       </div>
-
       <div class="col col-md-6 text-center">
         <div class="row">
           <div class="col col-md-12">
@@ -51,12 +46,13 @@
         </div>
       </div>
       <div class="col col-md-6 top-margin-10">
-        <img class="img-responsive img-rounded" src="http://lorempixel.com/800/400/" alt="">
+        <% if @musician.image != nil %>
+          
+        <% else %>
+          <img class="img-responsive img-rounded" src="http://lorempixel.com/800/400/" alt="">
+        <% end %>
       </div>
     </div>  <!-- /.row -->
   </div>
-
   <%= render '/musicians/bandlist', musician: @musician %>
-
-
 </div>

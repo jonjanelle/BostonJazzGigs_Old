@@ -21,6 +21,7 @@
       <% end %>
 
   <% else %>
-    <h2>You must be logged in to a musician account to create a band.</h2>
+    <h2 class="text-center">You must be logged in to a musician account to create a band.</h2>
+    <p class="text-center">New user? <%= link_to "Create a musician/band account", bands_newacct_path %> </p>
   <% end %>
 </div>

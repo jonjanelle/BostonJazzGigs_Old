@@ -1,12 +1,19 @@
 <% provide(:title, "Edit " + @user.firstname) %>
 <!-- Page Content -->
 <div class="container nav-buffer">
-  <a href="<%= users_path %>/<%= @user.id %>" class="btn btn-default">
-    <span class="glyphicon glyphicon-triangle-left"></span>
-    back to user page
-  </a>
-  <div class="jumbotron hero-spacer text-center alert-info">
-    <h1>Edit User Profile</h1>
-  </div>
-  <%= render 'form', user: @user %>
+  <% if logged_in? && current_user.id == @user.id %>
+    <a href="<%= users_path %>/<%= @user.id %>" class="btn btn-default">
+      <span class="glyphicon glyphicon-triangle-left"></span>
+      back to user page
+    </a>
+    <div class="jumbotron hero-spacer text-center alert-info">
+      <h1>Edit User Profile</h1>
+    </div>
+    <%= render 'form', user: @user %>
+  <% else %>
+    <h2 class="text-center">You are not authorized to edit this user profile.</h2>
+    <p class="text-center">
+      <%= link_to "If this is your user account, then login now to edit", login_path %>
+    </p>
+  <% end %>
 </div>

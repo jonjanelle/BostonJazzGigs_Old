@@ -1,54 +1,59 @@
 <div class="container">
-  <%= form_with(model: @musician, local: true) do |form| %>
-  <% if @musician.errors.any? %>
-  <div class="alert alert-danger alert-dismissible fade in" role=alert>
-    <button type=button class=close data-dismiss=alert aria-label=Close>
-      <span aria-hidden=true>&times;</span>
-    </button>
-    <h2>Warning: <%= pluralize(@musician.errors.count, "error") %>
-     stopped your changes from being saved:</h2>
-    <ul>
-      <% @musician.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
+  <% if logged_in? && current_user.user_type=='m' %>
+    <%= form_with(model: @musician, local: true) do |form| %>
+    <% if @musician.errors.any? %>
+    <div class="alert alert-danger alert-dismissible fade in" role=alert>
+      <button type=button class=close data-dismiss=alert aria-label=Close>
+        <span aria-hidden=true>&times;</span>
+      </button>
+      <h2>Warning: <%= pluralize(@musician.errors.count, "error") %>
+       stopped your changes from being saved:</h2>
+      <ul>
+        <% @musician.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
-  <div class="field form-group">
-    <%= form.label :firstname, "First Name" %><br>
-    <%= form.text_field :firstname, id: :musician_first, class: "form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :firstname, "First Name" %><br>
+      <%= form.text_field :firstname, id: :musician_first, value: current_user.firstname, class: "form-control" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :lastname, "Last Name" %><br>
-    <%= form.text_field :lastname, id: :musician_last, class: "form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :lastname, "Last Name" %><br>
+      <%= form.text_field :lastname, id: :musician_last, value: current_user.lastname, class: "form-control" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :instrument, "Primary Instrument" %><br>
-    <%= form.text_field :instrument, id: :musician_instrument, class: "form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :instrument, "Primary Instrument" %><br>
+      <%= form.text_field :instrument, id: :musician_instrument, class: "form-control" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :instrument2, "Secondary Instrument" %><br>
-    <%= form.text_field :instrument2, id: :musician_instrument2, class: "form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :instrument2, "Secondary Instrument" %><br>
+      <%= form.text_field :instrument2, id: :musician_instrument2, class: "form-control" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :bio, "Profile Biography"%><br>
-    <%= form.text_area :bio, id: :musician_bio, rows: 5, cols: 32, class: "form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :bio, "Profile Biography"%><br>
+      <%= form.text_area :bio, id: :musician_bio, rows: 5, cols: 32, class: "form-control" %>
+    </div>
 
-  <div class="field form-group">
-    <%= form.label :image, "Profile Photo (jpeg)" %><br>
-    <%= form.file_field :image, id: :musician_image, class: "form-control" %>
-  </div>
+    <div class="field form-group">
+      <%= form.label :image, "Profile Photo (jpeg)" %><br>
+      <%= form.file_field :image, id: :musician_image, class: "form-control" %>
+    </div>
 
-  <%= form.hidden_field :user_id, id: :musician_user_id, class:"form-control"  %>
+    <%= form.hidden_field :user_id, id: :musician_user_id, class:"form-control"  %>
 
-  <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
-  <br>
+    <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
+    <br>
+    <% end %>
+  <% else %>
+    <h2 class="text-center">You must be logged in to a musician account to create or edit a musician profile.</h2>
+    <p class="text-center">New user? <%= link_to "Create a musician/band account", bands_newacct_path %> </p>
   <% end %>
 </div>
 <br><br>
