@@ -12,21 +12,21 @@
       <h3>Secondary Instrument: <%= @musician.instrument2 %></h3>
     <% end %>
     <% if logged_in? && current_user.user_type=='m' && current_user.musician.id == @musician.id %>
-      <p><%= link_to 'Edit Musician Profile', edit_musician_path(@musician), class: "btn btn-primary" %>
-    <%= link_to 'Go to user account page', user_path(current_user), class: "btn btn-info" %></p>
-    <% end %>
-    <!--
-    <p>
-      <% if session[:user_id].nil? %>
-        <a href=<%= login_path %>>Login to contact this musician!</a>
-      <% else %>
-        <a href="#" class="btn btn-primary">Contact Musician Now</a>
-        <% if current_user.id == @musician.user.id %>
-          <%= link_to 'Edit Musician Info', edit_musician_path(@musician), class: "btn btn-info" %>
+      <p>
+        <%= link_to edit_musician_path(@musician), html_options={class: "btn btn-primary"} do %>
+          <span class="glyphicon glyphicon-pencil"></span>
+          Edit Musician Profile
         <% end %>
+        <%= link_to user_path(current_user), html_options={class: "btn btn-info"} do %>
+          <span class="glyphicon glyphicon-user"></span>
+          User Account Page
+        <% end %>
+      </p>
+      <%= link_to new_band_path, html_options={class: "btn btn-success"} do %>
+        <span class="glyphicon glyphicon-plus"></span>
+        Create New Band
       <% end %>
-    </p>
-  -->
+    <% end %>
   </div>
   <hr>
   <!-- Description, song demos, and image -->
@@ -47,7 +47,7 @@
       </div>
       <div class="col col-md-6 top-margin-10">
         <% if @musician.image != nil %>
-          
+          <!-- UPDATE THIS! -->
         <% else %>
           <img class="img-responsive img-rounded" src="http://lorempixel.com/800/400/" alt="">
         <% end %>

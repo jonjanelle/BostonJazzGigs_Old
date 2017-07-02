@@ -18,8 +18,8 @@
   <% if @user.user_type == 'm' %>
     <h3 class="page-header">Musician Account Actions</h3>
     <ul>
-      <li><%= link_to 'View Musician Profile', musician_path(@user.musician) %></li>
-      <li><%= link_to 'Create New Band', new_band_path %></li>
+      <li><h3><%= link_to 'View Musician Profile', musician_path(@user.musician) %></h3></li>
+      <li><h3><%= link_to 'Create New Band', new_band_path %></h3></li>
     </ul>
 
     <%= render 'musicians/bandlist', musician: current_user.musician %>
