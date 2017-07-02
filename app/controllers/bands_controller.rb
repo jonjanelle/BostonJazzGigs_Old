@@ -82,7 +82,7 @@ class BandsController < ApplicationController
         end
         format.html { redirect_to @band }
       else
-        flash[:danger]='An unknown error occurred while adding a musician. User: #{current_user.firstname} type: #{current_user.user_type} in band?: #{@band.in_band(current_user.id)}.'
+        flash[:danger]="An unknown error occurred while adding a musician. User: #{current_user.firstname} type: #{current_user.user_type} in band?: #{@band.in_band(current_user.id)}."
         format.html { redirect_to @band }
       end
     end
