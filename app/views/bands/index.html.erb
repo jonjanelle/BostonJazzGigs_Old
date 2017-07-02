@@ -3,7 +3,7 @@
   <div class="row text-center">
     <div class="col-lg-12 text-center sr-contact">
       <h2 class="section-heading">Browse All Bands</h2>
-      <small>Click a band name or image to view more info!</small>
+      <small>Press band names to view full profiles and contact info.</small>
       <hr class="primary">
     </div>
   </div>
@@ -20,13 +20,13 @@
         </div>
         <div class="row padded-10">
           <div class="col col-md-6 col-sm-12 centered-col">
-            <a href="<%= band_path(band.id) %>">
+          
               <% if band.image? %>
               <%= image_tag band.image, class: "img-responsive img-rounded band-pic-sm" %>
             <% else %>
               <img class="img-responsive img-rounded band-pic-sm" src="http://lorempixel.com/400/200/" alt="">
               <% end %>
-            </a>
+
           </div>
           <div class="col col-md-6 col-sm-12">
             <div class="row">

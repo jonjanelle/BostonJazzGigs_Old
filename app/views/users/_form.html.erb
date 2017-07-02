@@ -42,7 +42,7 @@
   <% if logged_in? %>
     <%= form.hidden_field :user_type, value: @user.user_type, id: :user_type, class:"form-control"  %>
   <% else %>
-    <%= form.hidden_field :user_type, id: :user_type, class:"form-control"  %>
+    <%= form.hidden_field :user_type, value: type, id: :user_type, class:"form-control"  %>
   <% end %>
   <%= form.submit class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
