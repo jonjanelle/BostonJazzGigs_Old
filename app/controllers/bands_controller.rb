@@ -73,7 +73,7 @@ class BandsController < ApplicationController
   def create_musician
     @band = Band.find(params[:band_id])
     respond_to do |format|
-      if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.id)
+      if logged_in? && current_user.user_type=='m' && @band.in_band(current_user.musician.id)
         if @band.in_band(params[:musician_id].to_i)
           flash[:danger]='The selected musician is already in the band!'
         else
@@ -82,7 +82,7 @@ class BandsController < ApplicationController
         end
         format.html { redirect_to @band }
       else
-        flash[:danger]="An unknown error occurred while adding a musician. User: #{current_user.firstname} type: #{current_user.user_type} in band?: #{@band.in_band(current_user.id)}."
+        flash[:danger]="An unknown error occurred while adding a musician."
         format.html { redirect_to @band }
       end
     end
