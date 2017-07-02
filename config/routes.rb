@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
+  delete 'bands/:band_id/delete/:musician_id', to: 'bands#destoy_band_musician'
+
   #Home routes
   root to: 'pages#home'
   get 'home', to: 'pages#home'

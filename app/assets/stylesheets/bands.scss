@@ -98,3 +98,12 @@
     text-align: center;
     margin: 0 auto;
 }
+
+.trash-button {
+  position: relative;
+  left: 45%;
+  &:hover {
+    color: #C22;
+    cursor: pointer;
+  }
+}

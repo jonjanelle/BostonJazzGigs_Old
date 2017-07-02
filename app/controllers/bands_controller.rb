@@ -61,6 +61,9 @@ class BandsController < ApplicationController
     redirect_to bands_path
   end
 
+  #
+  # Functions for handling band_musician HABTM management
+  #
   #GET /bands/1/addmusician
   def add_musician
     @band = Band.find(params[:id])
@@ -84,6 +87,16 @@ class BandsController < ApplicationController
       end
     end
   end
+
+
+  def destoy_band_musician
+    @band=Band.find(params[:band_id])
+    @musician=Musician.find(params[:musician_id])
+    @band.musicians.delete(@musician.id)
+    flash[:success]="#{@musician.firstname} #{@musician.lastname} was removed from #{@band.name}."
+    redirect_to @band
+  end
+
 
   private
   # Never trust parameters from the scary internet, only allow the white list through.

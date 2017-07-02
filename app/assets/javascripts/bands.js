@@ -55,6 +55,16 @@ function createBandMusician() {
   });
 }
 
+//Remove a musician from a band
+function deleteBandMusician(b_id,m_id) {
+  $.ajax({
+    type: 'DELETE',
+    url: '/bands/'+b_id+'/delete/'+m_id,
+    success: function(data) {}
+  });
+}
+
+
 //Bubble sort table by column.
 function sortTable(sortCol) {
   var table, rows, switching, i, x, y, shouldSwitch;
