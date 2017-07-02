@@ -20,9 +20,11 @@
     <% flash.each do |message_type, message| %>
       <div class="container alert alert-<%= message_type %> alert-dismissible fade in header-margin-top" role=alert>
         <button type=button class=close data-dismiss=alert aria-label=Close>
-          <span aria-hidden=true>&times;</span>
+          <span aria-hidden=true class="font-lg">&times;</span>
         </button>
-        <%= message %>
+        <div class="font-lg">
+          <%= message %>
+        </div>
       </div>
     <% end %>
 
