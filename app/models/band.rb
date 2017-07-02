@@ -11,6 +11,7 @@ class Band < ApplicationRecord
   #check whether a Musician with other_id is
   #in this band.
   def in_band(other_id)
+    other_id=other_id.to_i
     musicians = self.musicians
     musicians.each do |m|
       if m.id == other_id
